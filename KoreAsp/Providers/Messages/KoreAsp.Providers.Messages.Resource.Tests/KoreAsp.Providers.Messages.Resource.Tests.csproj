@@ -59,11 +59,11 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Core\KoreAsp\KoreAsp.csproj">
+    <ProjectReference Include="..\..\..\Core\KoreAsp\KoreAsp.csproj">
       <Project>{e8f69b19-d3be-45f4-8306-abf9cfdeb748}</Project>
       <Name>KoreAsp</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Providers\Messages\KoreAsp.Providers.Messages.Resource\KoreAsp.Providers.Messages.Resource.csproj">
+    <ProjectReference Include="..\KoreAsp.Providers.Messages.Resource\KoreAsp.Providers.Messages.Resource.csproj">
       <Project>{68a49754-bfd1-4638-be8a-0b9dc0ee65d3}</Project>
       <Name>KoreAsp.Providers.Messages.Resource</Name>
     </ProjectReference>

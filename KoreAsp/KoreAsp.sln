@@ -69,7 +69,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KoreAsp.Providers.Reporting
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KoreAsp.Providers.Serialization.Newtonsoft", "Providers\Serialization\KoreAsp.Providers.Serialization.Newtonsoft\KoreAsp.Providers.Serialization.Newtonsoft.csproj", "{0A004A18-E3EF-4F51-A5A3-AEE5077F6874}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KoreAsp.Providers.Messages.Resource.Tests", "KoreAsp.Providers.Messages.Resource.Tests\KoreAsp.Providers.Messages.Resource.Tests.csproj", "{6DEC6560-8A21-4177-B84D-6B1BEFFF4B6F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KoreAsp.Providers.Messages.Resource.Tests", "Providers\Messages\KoreAsp.Providers.Messages.Resource.Tests\KoreAsp.Providers.Messages.Resource.Tests.csproj", "{6DEC6560-8A21-4177-B84D-6B1BEFFF4B6F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
