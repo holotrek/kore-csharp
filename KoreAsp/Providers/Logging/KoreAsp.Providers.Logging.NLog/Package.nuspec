@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>KoreAsp.Providers.Logging.NLog</id>
+    <version>1.0.0</version>
+    <authors>Evan Kaiser</authors>
+    <owners>Holotrek</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>An implementation of the Holotrek's Logging provider that uses NLog.</description>
+    <tags>Holotrek's Core Providers Logging NLog</tags>
+    <dependencies>
+      <dependency id="KoreAsp" version="1.0.0"></dependency>
+      <dependency id="NLog" version="4.3.11"></dependency>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="bin\Release\KoreAsp.Providers.Logging.NLog.dll" target="lib\KoreAsp.Providers.Logging.NLog.dll"></file>
+  </files>
+</package>

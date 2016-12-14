@@ -1,0 +1,1 @@
+Use make_packages.bat in root directory to build the nuget packages into this directory.
