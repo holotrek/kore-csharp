@@ -2,13 +2,14 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>Kore</id>
+    <title>Holotrek Kore (Kaiser-Core)</title>
     <version>1.0.0</version>
     <projectUrl>https://github.com/holotrek/kore-csharp</projectUrl>
     <licenseUrl>http://choosealicense.com/licenses/mit/</licenseUrl>
     <authors>Evan Kaiser</authors>
     <owners>Holotrek</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Holotrek's library for core components and providers that can be used by any application.</description>
+    <description>Holotrek's library for core components and providers that can be used by any C# .NET application.</description>
     <tags>Holotrek's Core MVC Web API</tags>
     <frameworkAssemblies>
       <frameworkAssembly assemblyName="System.ComponentModel.DataAnnotations" />

@@ -12,7 +12,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Kore")]
-[assembly: AssemblyDescription("Holotrek's library for core components and providers that can be used by any application.")]
+[assembly: AssemblyDescription("Holotrek's library for core components and providers that can be used by any C# .NET application.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Holotrek")]
 [assembly: AssemblyProduct("Kore")]

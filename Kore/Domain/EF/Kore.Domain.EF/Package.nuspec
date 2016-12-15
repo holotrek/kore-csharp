@@ -2,6 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>Kore.Domain.EF</id>
+    <title>Holotrek Kore (Kaiser-Core) - EF Domain</title>
     <version>1.0.0</version>
     <projectUrl>https://github.com/holotrek/kore-csharp</projectUrl>
     <licenseUrl>http://choosealicense.com/licenses/mit/</licenseUrl>
