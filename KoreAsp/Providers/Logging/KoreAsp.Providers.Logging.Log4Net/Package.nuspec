@@ -3,6 +3,8 @@
   <metadata>
     <id>KoreAsp.Providers.Logging.Log4Net</id>
     <version>1.0.0</version>
+    <projectUrl>https://github.com/holotrek/kore-asp</projectUrl>
+    <licenseUrl>http://choosealicense.com/licenses/mit/</licenseUrl>
     <authors>Evan Kaiser</authors>
     <owners>Holotrek</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
