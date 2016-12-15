@@ -113,9 +113,11 @@ All pull requests must adhere to the following rules:
 * If creating a new project for a different implementation, the following rules should be adhered to:
   * Follow naming conventions and folder structure that the other implementation projects use
   * Add the Settings.StyleCop file to the project
-  * Any 3rd party library must be included through NuGet
+  * Add the Package.nuspec file to the project and fill it out accordingly.
+  * Any 3rd party library must be included through NuGet and included in the **dependencies** tag of the Package.nuspec.
   * AssemblyInfo.cs should contain a description and proper assembly info identifying the copmany/copyright that wrote the library. You may use "Holotrek" if you do not wish to include your name/company name.
   * All projects added are assumed to be licensed under the MIT license that the overall project uses.
+  * Remove all references other than System not specifically used by the project. Any assemblies referenced must be included in the **frameworkAssemblies** tag of the Package.nuspec.
 
 ## License
 
