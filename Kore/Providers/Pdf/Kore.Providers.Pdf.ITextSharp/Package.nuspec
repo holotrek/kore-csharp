@@ -6,6 +6,7 @@
     <version>1.0.0</version>
     <projectUrl>https://github.com/holotrek/kore-csharp</projectUrl>
     <licenseUrl>http://choosealicense.com/licenses/mit/</licenseUrl>
+    <iconUrl>https://raw.githubusercontent.com/holotrek/kore-csharp/master/icons/Kore_64.png</iconUrl>
     <authors>Evan Kaiser</authors>
     <owners>Holotrek</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
