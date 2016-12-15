@@ -3,7 +3,7 @@
   <metadata>
     <id>Kore.Providers.Serialization.Newtonsoft</id>
     <version>1.0.0</version>
-    <projectUrl>https://github.com/holotrek/kore-asp</projectUrl>
+    <projectUrl>https://github.com/holotrek/kore-csharp</projectUrl>
     <licenseUrl>http://choosealicense.com/licenses/mit/</licenseUrl>
     <authors>Evan Kaiser</authors>
     <owners>Holotrek</owners>
