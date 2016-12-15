@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>Kore.Providers.Reporting.SSRS</id>
+    <version>1.0.0</version>
+    <projectUrl>https://github.com/holotrek/kore-asp</projectUrl>
+    <licenseUrl>http://choosealicense.com/licenses/mit/</licenseUrl>
+    <authors>Evan Kaiser</authors>
+    <owners>Holotrek</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>An implementation of the Holotrek's Reporting provider for SSRS Client-side reports.</description>
+    <tags>Holotrek's Core Providers Reporting SSRS</tags>
+    <dependencies>
+      <dependency id="Kore" version="1.0.0"></dependency>
+      <dependency id="Microsoft.ReportViewer" version="11.0.3366.16"></dependency>
+    </dependencies>
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="System.Web" />
+    </frameworkAssemblies>
+  </metadata>
+  <files>
+    <file src="bin\Release\Kore.Providers.Reporting.SSRS.dll" target="lib\Kore.Providers.Reporting.SSRS.dll"></file>
+  </files>
+</package>

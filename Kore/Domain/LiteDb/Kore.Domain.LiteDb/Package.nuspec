@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>Kore.Domain.LiteDb</id>
+    <version>1.0.0</version>
+    <projectUrl>https://github.com/holotrek/kore-asp</projectUrl>
+    <licenseUrl>http://choosealicense.com/licenses/mit/</licenseUrl>
+    <authors>Evan Kaiser</authors>
+    <owners>Holotrek</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Infrastructure for integrating the Holotrek's Core with the No-SQL library LiteDB.</description>
+    <tags>Holotrek's Core Domain LiteDB</tags>
+    <dependencies>
+      <dependency id="Kore" version="1.0.0"></dependency>
+      <dependency id="LiteDB" version="2.0.4"></dependency>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="bin\Release\Kore.Domain.LiteDb.dll" target="lib\Kore.Domain.LiteDb.dll"></file>
+  </files>
+</package>

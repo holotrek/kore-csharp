@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>Kore.Providers.Containers.Unity</id>
+    <version>1.0.0</version>
+    <projectUrl>https://github.com/holotrek/kore-asp</projectUrl>
+    <licenseUrl>http://choosealicense.com/licenses/mit/</licenseUrl>
+    <authors>Evan Kaiser</authors>
+    <owners>Holotrek</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>An implementation of the Holotrek's Container provider that uses Unity.</description>
+    <tags>Holotrek's Core Providers Containers Unity</tags>
+    <dependencies>
+      <dependency id="Kore" version="1.0.0"></dependency>
+      <dependency id="Unity" version="4.0.1"></dependency>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="bin\Release\Kore.Providers.Containers.Unity.dll" target="lib\Kore.Providers.Containers.Unity.dll"></file>
+  </files>
+</package>

@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>Kore.Domain.EF</id>
+    <version>1.0.0</version>
+    <projectUrl>https://github.com/holotrek/kore-asp</projectUrl>
+    <licenseUrl>http://choosealicense.com/licenses/mit/</licenseUrl>
+    <authors>Evan Kaiser</authors>
+    <owners>Holotrek</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Infrastructure for integrating the Holotrek's Core with the Entity Framework ORM.</description>
+    <tags>Holotrek's Core Domain EF</tags>
+    <dependencies>
+      <dependency id="Kore" version="1.0.0"></dependency>
+      <dependency id="EntityFramework" version="6.1.3"></dependency>
+    </dependencies>
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="System.Transactions" />
+    </frameworkAssemblies>
+  </metadata>
+  <files>
+    <file src="bin\Release\Kore.Domain.EF.dll" target="lib\Kore.Domain.EF.dll"></file>
+  </files>
+</package>
