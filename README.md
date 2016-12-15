@@ -46,9 +46,34 @@ Current list of providers:
 * **Serialization**: Methods to serialize/deserialize objects to and from JSON.
   * Newtonsoft JSON: [Download from NuGet](https://www.nuget.org/packages/Kore.Providers.Serialization.Newtonsoft/)
 
+### Attributes
+
+Provides a set of custom validation attributes that can be used to annotate your view models. Provides extensions for pulling down a JSON object containing information about each property in a given model, including:
+* **Property Name**
+* **Display Name**
+* **Display Group Name**
+* **Property name of primary key of the model**
+* **Property Type**
+* **Short Name**
+* **Prompt**
+* **Default Value**
+* and **validations**, including any default .NET attribute such as [RequiredAttribute](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.requiredattribute(v=vs.110).aspx), as well as custom attributes...
+  * **Two-property attributes that compare the value of one to another:**
+    * MustBeGreaterThan
+    * MustBeGreaterThanOrEqual
+    * MustBeLesserThan
+    * MustBeLesserThanOrEqual
+  * **Attribute that requires the property decorated to be a certain thing when another property is another thing**
+    * MustBeWhen
+    * MustBeWhenNot
+    * NotAllowedWhen
+    * NotAllowedWhenNot
+    * RequiredWhen
+    * RequiredWhenNot
+
 ### Extensions
 
-Some extensions are provided in the Kore for tasks performed often in regards to:
+An ever-growing collection of extensions are provided in the Kore for tasks performed often in regards to:
 * IEnumerable
 * Enum
 * Exceptions
@@ -59,7 +84,26 @@ Some extensions are provided in the Kore for tasks performed often in regards to
 * String functions
 * Types
 
-NOTE: This list continues to grow as needs arise and is not in any way intended to be a complete list.
+### Formatters
+
+Allows for injecting a specific formatter that will provide consistency in how things are formatted across the application. When a string property on a view model is annotated with the FormattedDate, referencing a DateTime property, the string will be formatted according to the specific strategy injected.
+
+Currently formatters are provided for:
+* Date
+* Full Name
+
+### Composites
+
+An ever-growing collection of models that are lightweight representations of real-world things that contain simple properties. Also known as "Value Objects", they are immutable (have properties that are set only upon initialization of the object).
+
+Current composites are:
+* Full Name (used by the Full Name formatter)
+* GPS Point
+
+### Comparers
+
+An ever-growing collection of custom equality comparers.
+* Lambda: Provides for the ability to compare a particular property in two different objects. Used by the LinQ extensions.
 
 ## Contributing
 
