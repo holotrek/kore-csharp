@@ -38,7 +38,7 @@ namespace Kore.Composites
         /// <value>
         /// The last name.
         /// </value>
-        public string LastName { get; set; }
+        public string LastName { get; private set; }
 
         /// <summary>
         /// Gets or sets the first name.
@@ -46,7 +46,7 @@ namespace Kore.Composites
         /// <value>
         /// The first name.
         /// </value>
-        public string FirstName { get; set; }
+        public string FirstName { get; private set; }
 
         /// <summary>
         /// Gets or sets the name of the middle.
@@ -54,7 +54,7 @@ namespace Kore.Composites
         /// <value>
         /// The name of the middle.
         /// </value>
-        public string MiddleName { get; set; }
+        public string MiddleName { get; private set; }
 
         #endregion
     }

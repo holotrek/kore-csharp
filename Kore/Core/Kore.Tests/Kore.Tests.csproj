@@ -60,7 +60,6 @@
     <Compile Include="CompositeTests.cs" />
     <Compile Include="ExtensionTests.cs" />
     <Compile Include="FormatterTests.cs" />
-    <Compile Include="MessageTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\MessageAndLoggingTests.cs" />
     <Compile Include="Resources\TestResources.Designer.cs">

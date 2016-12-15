@@ -4,7 +4,6 @@
 // </copyright>
 // ***********************************************************************
 
-using System;
 using Kore.Composites;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 

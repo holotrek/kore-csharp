@@ -53,7 +53,7 @@ namespace Kore.Composites
         /// <value>
         /// The latitude.
         /// </value>
-        public double Latitude { get; set; }
+        public double Latitude { get; private set; }
 
         /// <summary>
         /// Gets or sets the longitude.
@@ -61,7 +61,7 @@ namespace Kore.Composites
         /// <value>
         /// The longitude.
         /// </value>
-        public double Longitude { get; set; }
+        public double Longitude { get; private set; }
 
         #endregion
 
