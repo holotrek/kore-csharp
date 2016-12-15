@@ -3,7 +3,7 @@
   <metadata>
     <id>Kore.Domain.EF</id>
     <title>Holotrek Kore (Kaiser-Core) - EF Domain</title>
-    <version>1.0.2</version>
+    <version>1.0.2-beta</version>
     <projectUrl>https://github.com/holotrek/kore-csharp</projectUrl>
     <licenseUrl>http://choosealicense.com/licenses/mit/</licenseUrl>
     <iconUrl>https://raw.githubusercontent.com/holotrek/kore-csharp/master/icons/Kore_64.png</iconUrl>
