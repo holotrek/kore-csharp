@@ -11,7 +11,7 @@
     <owners>Holotrek</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>An implementation of the Holotrek's Logging provider that uses log4net.</description>
-    <tags>Holotrek's Core Providers Logging log4net</tags>
+    <tags>Core Providers Logging log4net</tags>
     <dependencies>
       <dependency id="Kore" version="1.0.0"></dependency>
       <dependency id="log4net" version="2.0.5"></dependency>

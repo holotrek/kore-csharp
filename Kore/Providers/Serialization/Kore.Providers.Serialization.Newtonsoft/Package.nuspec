@@ -11,7 +11,7 @@
     <owners>Holotrek</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>An implementation of the Holotrek's Serialization provider that uses Newtonsoft JSON.</description>
-    <tags>Holotrek's Core Providers Serialization Newtonsoft JSON</tags>
+    <tags>Core Providers Serialization Newtonsoft JSON</tags>
     <dependencies>
       <dependency id="Kore" version="1.0.0"></dependency>
       <dependency id="Newtonsoft.Json" version="9.0.1"></dependency>

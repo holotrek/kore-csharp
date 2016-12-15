@@ -11,7 +11,7 @@
     <owners>Holotrek</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>An implementation of the Holotrek's Caching provider that uses the .NET Memory Cache.</description>
-    <tags>Holotrek's Core Providers Caching Memory</tags>
+    <tags>Core Providers Caching Memory</tags>
     <dependencies>
       <dependency id="Kore" version="1.0.0"></dependency>
     </dependencies>

@@ -11,7 +11,7 @@
     <owners>Holotrek</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>An implementation of the Holotrek's Logging provider that uses NLog.</description>
-    <tags>Holotrek's Core Providers Logging NLog</tags>
+    <tags>Core Providers Logging NLog</tags>
     <dependencies>
       <dependency id="Kore" version="1.0.0"></dependency>
       <dependency id="NLog" version="4.3.11"></dependency>

@@ -11,7 +11,7 @@
     <owners>Holotrek</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>An implementation of the Holotrek's Container provider that uses Unity.</description>
-    <tags>Holotrek's Core Providers Containers Unity</tags>
+    <tags>Core Providers Containers Unity</tags>
     <dependencies>
       <dependency id="Kore" version="1.0.0"></dependency>
       <dependency id="Unity" version="4.0.1"></dependency>

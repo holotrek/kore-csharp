@@ -11,7 +11,7 @@
     <owners>Holotrek</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Infrastructure for integrating the Holotrek's Core with the No-SQL library LiteDB.</description>
-    <tags>Holotrek's Core Domain LiteDB</tags>
+    <tags>Core Domain LiteDB</tags>
     <dependencies>
       <dependency id="Kore" version="1.0.0"></dependency>
       <dependency id="LiteDB" version="2.0.4"></dependency>

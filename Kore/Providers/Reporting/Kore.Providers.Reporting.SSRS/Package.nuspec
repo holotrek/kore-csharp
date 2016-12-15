@@ -11,7 +11,7 @@
     <owners>Holotrek</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>An implementation of the Holotrek's Reporting provider for SSRS Client-side reports.</description>
-    <tags>Holotrek's Core Providers Reporting SSRS</tags>
+    <tags>Core Providers Reporting SSRS</tags>
     <dependencies>
       <dependency id="Kore" version="1.0.0"></dependency>
       <dependency id="Microsoft.ReportViewer" version="11.0.3366.16"></dependency>

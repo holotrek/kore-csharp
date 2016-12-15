@@ -11,7 +11,7 @@
     <owners>Holotrek</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>An implementation of the Holotrek's PDF provider that uses iTextSharp.</description>
-    <tags>Holotrek's Core Providers PDF iTextSharp</tags>
+    <tags>Core Providers PDF iTextSharp</tags>
     <dependencies>
       <dependency id="Kore" version="1.0.0"></dependency>
       <dependency id="ITextSharp" version="5.5.10"></dependency>
