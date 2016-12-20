@@ -115,6 +115,11 @@ namespace Kore.Domain.Context
         /// <summary>
         /// Mark record by User Name
         /// </summary>
-        UserName = 1
+        UserName = 1,
+
+        /// <summary>
+        /// Mark record in the format: LastName, FirstName (UserName)
+        /// </summary>
+        LastFirstUserName = 2
     }
 }

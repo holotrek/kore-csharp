@@ -4,6 +4,7 @@
 // </copyright>
 // ***********************************************************************
 
+using System;
 using Kore.Domain.Context;
 
 namespace Kore.Providers.Authentication
@@ -44,5 +45,23 @@ namespace Kore.Providers.Authentication
         /// </summary>
         /// <value>The name of the user.</value>
         public string UserName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the first name of the user.
+        /// </summary>
+        /// <value>The first name.</value>
+        public string FirstName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the last name of the user.
+        /// </summary>
+        /// <value>The last name.</value>
+        public string LastName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the middle name of the user.
+        /// </summary>
+        /// <value>The middle name.</value>
+        public string MiddleName { get; set; }
     }
 }

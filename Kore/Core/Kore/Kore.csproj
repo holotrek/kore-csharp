@@ -92,6 +92,8 @@
     <Compile Include="Formatters\Name\FirstLeadingWithFullMiddle.cs" />
     <Compile Include="Formatters\Name\FirstLeadingWithInitializedMiddle.cs" />
     <Compile Include="Formatters\Name\IFullNameFormatter.cs" />
+    <Compile Include="Formatters\Name\FirstLeadingWithNoMiddle.cs" />
+    <Compile Include="Formatters\Name\LastLeadingWithNoMiddle.cs" />
     <Compile Include="Formatters\Name\LastLeadingWithFullMiddle.cs" />
     <Compile Include="Formatters\Name\LastLeadingWithInitializedMiddle.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -99,6 +101,7 @@
     <Compile Include="Providers\Authentication\IUser.cs" />
     <Compile Include="Providers\Authentication\MockAuthenticationProvider.cs" />
     <Compile Include="Providers\Authentication\MockUser.cs" />
+    <Compile Include="Providers\Authentication\UserExtensions.cs" />
     <Compile Include="Providers\Caching\ICachingProvider.cs" />
     <Compile Include="Providers\Caching\MockCachingProvider.cs" />
     <Compile Include="Providers\Containers\IContainerProvider.cs" />

@@ -15,8 +15,23 @@ namespace Kore.Providers.Authentication
     public interface IUser : IEntity
     {
         /// <summary>
-        /// Gets the name of the user.
+        /// Gets the username of the user.
         /// </summary>
         string UserName { get; }
+
+        /// <summary>
+        /// Gets the first name of the user.
+        /// </summary>
+        string FirstName { get; }
+
+        /// <summary>
+        /// Gets the last name of the user.
+        /// </summary>
+        string LastName { get; }
+
+        /// <summary>
+        /// Gets the middle name of the user.
+        /// </summary>
+        string MiddleName { get; }
     }
 }

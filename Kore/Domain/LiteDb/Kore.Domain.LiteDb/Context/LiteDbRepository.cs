@@ -222,7 +222,7 @@ namespace Kore.Domain.LiteDb.Context
             }
 
             DateTime now = DateTime.Now;
-            string user = this.CustomConfiguration.StubMode == RecordStubMode.UniqueId ? this.CurrentUser.UniqueId : this.CurrentUser.UserName;
+            string user = this.CurrentUser.GetRecordIdentifier(this.CustomConfiguration.StubMode);
             if (entity.EntityState == DomainState.Modified || entity.EntityState == DomainState.Deleted)
             {
                 entity.UpdatedBy = user;
