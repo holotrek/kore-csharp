@@ -13,7 +13,7 @@ using Kore.Domain.LiteDb.Tests.Domain.Orders.Models;
 namespace Kore.Domain.LiteDb.Tests.Domain.Orders
 {
     /// <summary>
-    /// The repository for the Product Domain in the Core.EF Testing Suite.
+    /// The repository for the Product Domain in the Core.LiteDb Testing Suite.
     /// </summary>
     /// <seealso cref="Kore.Domain.LiteDb.Context.EFRepository{Kore.Domain.LiteDb.Tests.Domain.Products.ProductRepository}" />
     /// <seealso cref="Kore.Domain.Context.IRepository" />

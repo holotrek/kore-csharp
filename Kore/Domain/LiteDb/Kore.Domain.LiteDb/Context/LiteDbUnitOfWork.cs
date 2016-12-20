@@ -18,7 +18,7 @@ namespace Kore.Domain.LiteDb.Context
     /// <summary>
     /// A contract that will allow for multiple ORM repositories to be transactional.
     /// </summary>
-    public class LiteDbUnitOfWork : BaseUnitOfWork, IUnitOfWork<LiteDbRepository>
+    public class LiteDbUnitOfWork : BaseUnitOfWork, IUnitOfWork
     {
         #region Private Fields
 
@@ -26,11 +26,6 @@ namespace Kore.Domain.LiteDb.Context
         /// Whether the unit of work has been disposed.
         /// </summary>
         private bool _disposed = false;
-
-        /// <summary>
-        /// The repositories
-        /// </summary>
-        private List<LiteDbRepository> _repositories;
 
         #endregion
 
@@ -47,7 +42,6 @@ namespace Kore.Domain.LiteDb.Context
             : base(authenticationProvider, messageProvider, eventDispatcher)
         {
             this.Connection = new LiteDatabase(databaseFileName);
-            this._repositories = new List<LiteDbRepository>();
             this.BeginTransaction();
         }
 
@@ -63,17 +57,6 @@ namespace Kore.Domain.LiteDb.Context
         #region Public Properties
 
         /// <summary>
-        /// Gets the repositories within this unit of work.
-        /// </summary>
-        public virtual IEnumerable<LiteDbRepository> Repositories
-        {
-            get
-            {
-                return this._repositories;
-            }
-        }
-
-        /// <summary>
         /// Gets or sets the connection.
         /// </summary>
         /// <value>The connection.</value>
@@ -87,26 +70,6 @@ namespace Kore.Domain.LiteDb.Context
         #endregion
 
         #region Public Methods
-
-        /// <summary>
-        /// Adds the repository to this unit of work so that transactions within all the repositories will use the same transaction.
-        /// </summary>
-        /// <param name="repository">The repository.</param>
-        public virtual void AddRepository(LiteDbRepository repository)
-        {
-            this._repositories.Add(repository);
-        }
-
-        /// <summary>
-        /// Gets the specific repository from the list of repositories managed by this Unit of Work.
-        /// </summary>
-        /// <typeparam name="TSpecificRepository">The type of the specific repository.</typeparam>
-        /// <returns>The specific typed repository.</returns>
-        public LiteDbRepository GetRepository<TSpecificRepository>()
-            where TSpecificRepository : LiteDbRepository
-        {
-            return this._repositories.OfType<TSpecificRepository>().FirstOrDefault();
-        }
 
         /// <summary>
         /// Begins the transaction.

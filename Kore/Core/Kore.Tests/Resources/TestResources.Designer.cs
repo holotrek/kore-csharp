@@ -22,7 +22,7 @@ namespace Kore.Tests.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class TestResources {
+    public class TestResources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace Kore.Tests.Resources {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Kore.Tests.Resources.TestResources", typeof(TestResources).Assembly);
@@ -51,7 +51,7 @@ namespace Kore.Tests.Resources {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace Kore.Tests.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Check Condition One.
         /// </summary>
-        internal static string Condition1 {
+        public static string Condition1 {
             get {
                 return ResourceManager.GetString("Condition1", resourceCulture);
             }
@@ -72,7 +72,7 @@ namespace Kore.Tests.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Prop One.
         /// </summary>
-        internal static string Property1 {
+        public static string Property1 {
             get {
                 return ResourceManager.GetString("Property1", resourceCulture);
             }
@@ -81,7 +81,7 @@ namespace Kore.Tests.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Test Date Range (Start to End).
         /// </summary>
-        internal static string TestDateRangeGroupName {
+        public static string TestDateRangeGroupName {
             get {
                 return ResourceManager.GetString("TestDateRangeGroupName", resourceCulture);
             }
@@ -90,7 +90,7 @@ namespace Kore.Tests.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Test End Date.
         /// </summary>
-        internal static string TestEndDate {
+        public static string TestEndDate {
             get {
                 return ResourceManager.GetString("TestEndDate", resourceCulture);
             }
@@ -99,7 +99,7 @@ namespace Kore.Tests.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Test Start Date.
         /// </summary>
-        internal static string TestStartDate {
+        public static string TestStartDate {
             get {
                 return ResourceManager.GetString("TestStartDate", resourceCulture);
             }

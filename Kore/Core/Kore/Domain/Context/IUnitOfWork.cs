@@ -19,6 +19,11 @@ namespace Kore.Domain.Context
     public interface IUnitOfWork : IDisposable
     {
         /// <summary>
+        /// Gets the repositories within this unit of work.
+        /// </summary>
+        IEnumerable<IRepository> Repositories { get; }
+
+        /// <summary>
         /// Gets the authentication provider.
         /// </summary>
         IAuthenticationProvider AuthenticationProvider { get; }
@@ -34,6 +39,20 @@ namespace Kore.Domain.Context
         IDomainEventDispatcher EventDispatcher { get; }
 
         /// <summary>
+        /// Adds the repository to this unit of work so that transactions within all the repositories will use the same transaction.
+        /// </summary>
+        /// <param name="repository">The repository.</param>
+        void AddRepository(IRepository repository);
+
+        /// <summary>
+        /// Gets the repository.
+        /// </summary>
+        /// <typeparam name="TRepository">The type of the repository.</typeparam>
+        /// <returns>The repository.</returns>
+        TRepository GetRepository<TRepository>()
+            where TRepository : IRepository;
+
+        /// <summary>
         /// Begins the transaction.
         /// </summary>
         void BeginTransaction();
@@ -47,34 +66,5 @@ namespace Kore.Domain.Context
         /// Commits the changes to the repositories in this unit of work.
         /// </summary>
         void Commit();
-    }
-
-    /// <summary>
-    /// A contract that will allow for multiple ORM repositories to be transactional.
-    /// </summary>
-    /// <typeparam name="TRepository">The type of the repository.</typeparam>
-    /// <seealso cref="Kore.Domain.Context.IUnitOfWork" />
-    /// <seealso cref="System.IDisposable" />
-    public interface IUnitOfWork<TRepository> : IUnitOfWork
-        where TRepository : IRepository
-    {
-        /// <summary>
-        /// Gets the repositories within this unit of work.
-        /// </summary>
-        IEnumerable<TRepository> Repositories { get; }
-
-        /// <summary>
-        /// Adds the repository to this unit of work so that transactions within all the repositories will use the same transaction.
-        /// </summary>
-        /// <param name="repository">The repository.</param>
-        void AddRepository(TRepository repository);
-
-        /// <summary>
-        /// Gets the specific repository from the list of repositories managed by this Unit of Work.
-        /// </summary>
-        /// <typeparam name="TSpecificRepository">The type of the specific repository.</typeparam>
-        /// <returns>The specific typed repository.</returns>
-        TRepository GetRepository<TSpecificRepository>()
-            where TSpecificRepository : TRepository;
     }
 }

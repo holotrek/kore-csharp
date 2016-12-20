@@ -4,6 +4,7 @@
 // </copyright>
 // ***********************************************************************
 
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Kore.Domain.Events;
@@ -18,12 +19,26 @@ namespace Kore.Domain.Context
     public abstract class BaseUnitOfWork : IUnitOfWork
     {
         /// <summary>
+        /// The repositories
+        /// </summary>
+        private List<IRepository> _repositories;
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="BaseUnitOfWork"/> class.
+        /// </summary>
+        protected BaseUnitOfWork()
+        {
+            this._repositories = new List<IRepository>();
+        }
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="BaseUnitOfWork" /> class.
         /// </summary>
         /// <param name="authenticationProvider">The authentication provider.</param>
         /// <param name="messageProvider">The message provider.</param>
         /// <param name="eventDispatcher">The event dispatcher.</param>
         public BaseUnitOfWork(IAuthenticationProvider authenticationProvider, IMessageProvider messageProvider, IDomainEventDispatcher eventDispatcher)
+            : this()
         {
             this.AuthenticationProvider = authenticationProvider;
             this.MessageProvider = messageProvider;
@@ -31,10 +46,14 @@ namespace Kore.Domain.Context
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="BaseUnitOfWork"/> class.
+        /// Gets the repositories within this unit of work.
         /// </summary>
-        protected BaseUnitOfWork()
+        public virtual IEnumerable<IRepository> Repositories
         {
+            get
+            {
+                return this._repositories;
+            }
         }
 
         /// <summary>
@@ -71,6 +90,26 @@ namespace Kore.Domain.Context
         /// Disposes the unit of work and all corresponding repositories.
         /// </summary>
         public abstract void Dispose();
+
+        /// <summary>
+        /// Adds the repository to this unit of work so that transactions within all the repositories will use the same transaction.
+        /// </summary>
+        /// <param name="repository">The repository.</param>
+        public virtual void AddRepository(IRepository repository)
+        {
+            this._repositories.Add(repository);
+        }
+
+        /// <summary>
+        /// Gets the repository.
+        /// </summary>
+        /// <typeparam name="TRepository">The type of the repository.</typeparam>
+        /// <returns>The repository.</returns>
+        public virtual TRepository GetRepository<TRepository>()
+            where TRepository : IRepository
+        {
+            return this._repositories.OfType<TRepository>().FirstOrDefault();
+        }
 
         /// <summary>
         /// Dispatches the events.

@@ -5,12 +5,10 @@
 // ***********************************************************************
 
 using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.Common;
 using System.Data.Entity;
 using System.Data.Entity.Validation;
-using System.Linq;
 using System.Transactions;
 using Kore.Domain.Context;
 using Kore.Domain.Events;
@@ -22,7 +20,7 @@ namespace Kore.Domain.EF.Context
     /// <summary>
     /// A contract that will allow for multiple ORM repositories to be transactional.
     /// </summary>
-    public class EFUnitOfWork : BaseUnitOfWork, IUnitOfWork<EFRepository>
+    public class EFUnitOfWork : BaseUnitOfWork, IUnitOfWork
     {
         #region Private Fields
 
@@ -30,11 +28,6 @@ namespace Kore.Domain.EF.Context
         /// Whether the unit of work has been disposed.
         /// </summary>
         private bool _disposed = false;
-
-        /// <summary>
-        /// The repositories
-        /// </summary>
-        private List<EFRepository> _repositories;
 
         #endregion
 
@@ -51,7 +44,6 @@ namespace Kore.Domain.EF.Context
             : base(authenticationProvider, messageProvider, eventDispatcher)
         {
             this.Connection = connection;
-            this._repositories = new List<EFRepository>();
             this.BeginTransaction();
         }
 
@@ -67,17 +59,6 @@ namespace Kore.Domain.EF.Context
         #region Public Properties
 
         /// <summary>
-        /// Gets the repositories within this unit of work.
-        /// </summary>
-        public virtual IEnumerable<EFRepository> Repositories
-        {
-            get
-            {
-                return this._repositories;
-            }
-        }
-
-        /// <summary>
         /// Gets or sets the connection.
         /// </summary>
         /// <value>The connection.</value>
@@ -91,26 +72,6 @@ namespace Kore.Domain.EF.Context
         #endregion
 
         #region Public Methods
-
-        /// <summary>
-        /// Adds the repository to this unit of work so that transactions within all the repositories will use the same transaction.
-        /// </summary>
-        /// <param name="repository">The repository.</param>
-        public virtual void AddRepository(EFRepository repository)
-        {
-            this._repositories.Add(repository);
-        }
-
-        /// <summary>
-        /// Gets the specific repository from the list of repositories managed by this Unit of Work.
-        /// </summary>
-        /// <typeparam name="TSpecificRepository">The type of the specific repository.</typeparam>
-        /// <returns>The specific typed repository.</returns>
-        public EFRepository GetRepository<TSpecificRepository>()
-            where TSpecificRepository : EFRepository
-        {
-            return this._repositories.OfType<TSpecificRepository>().FirstOrDefault();
-        }
 
         /// <summary>
         /// Begins the transaction.

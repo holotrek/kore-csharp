@@ -85,7 +85,7 @@
   <ItemGroup>
     <EmbeddedResource Include="Resources\TestResources.es.resx" />
     <EmbeddedResource Include="Resources\TestResources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>TestResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
