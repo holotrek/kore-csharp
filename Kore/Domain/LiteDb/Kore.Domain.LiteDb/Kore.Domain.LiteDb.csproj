@@ -40,6 +40,7 @@
     <Compile Include="Context\LiteDbRepository.cs" />
     <Compile Include="Context\LiteDbUnitOfWork.cs" />
     <Compile Include="Context\RepositoryConfiguration.cs" />
+    <Compile Include="Extensions\LiteDbExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

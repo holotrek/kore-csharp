@@ -33,27 +33,18 @@ namespace Kore.Composites
         #region Public Properties
 
         /// <summary>
-        /// Gets or sets the last name.
+        /// Gets the last name.
         /// </summary>
-        /// <value>
-        /// The last name.
-        /// </value>
         public string LastName { get; private set; }
 
         /// <summary>
-        /// Gets or sets the first name.
+        /// Gets the first name.
         /// </summary>
-        /// <value>
-        /// The first name.
-        /// </value>
         public string FirstName { get; private set; }
 
         /// <summary>
-        /// Gets or sets the name of the middle.
+        /// Gets the middle name.
         /// </summary>
-        /// <value>
-        /// The name of the middle.
-        /// </value>
         public string MiddleName { get; private set; }
 
         #endregion

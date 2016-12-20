@@ -1,5 +1,5 @@
 ﻿// ***********************************************************************
-// <copyright file="MessageAndLoggingTests.cs" company="Holotrek">
+// <copyright file="ResourceMessageTests.cs" company="Holotrek">
 //     Copyright © Holotrek 2016
 // </copyright>
 // ***********************************************************************

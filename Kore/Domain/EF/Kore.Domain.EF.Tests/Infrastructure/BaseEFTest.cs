@@ -7,12 +7,12 @@
 using System.Data.Common;
 using System.IO;
 using System.Reflection;
+using Effort;
+using Effort.DataLoaders;
 using Kore.Domain.Events;
 using Kore.Providers.Authentication;
 using Kore.Providers.Logging;
 using Kore.Providers.Messages;
-using Effort;
-using Effort.DataLoaders;
 
 namespace Kore.Domain.EF.Tests.Infrastructure
 {

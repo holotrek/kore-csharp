@@ -48,19 +48,13 @@ namespace Kore.Composites
         #region Public Properties
 
         /// <summary>
-        /// Gets or sets the latitude.
+        /// Gets the latitude.
         /// </summary>
-        /// <value>
-        /// The latitude.
-        /// </value>
         public double Latitude { get; private set; }
 
         /// <summary>
-        /// Gets or sets the longitude.
+        /// Gets the longitude.
         /// </summary>
-        /// <value>
-        /// The longitude.
-        /// </value>
         public double Longitude { get; private set; }
 
         #endregion

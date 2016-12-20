@@ -24,14 +24,6 @@ namespace Kore.Domain.Context
         private List<IRepository> _repositories;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="BaseUnitOfWork"/> class.
-        /// </summary>
-        protected BaseUnitOfWork()
-        {
-            this._repositories = new List<IRepository>();
-        }
-
-        /// <summary>
         /// Initializes a new instance of the <see cref="BaseUnitOfWork" /> class.
         /// </summary>
         /// <param name="authenticationProvider">The authentication provider.</param>
@@ -43,6 +35,14 @@ namespace Kore.Domain.Context
             this.AuthenticationProvider = authenticationProvider;
             this.MessageProvider = messageProvider;
             this.EventDispatcher = eventDispatcher;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="BaseUnitOfWork"/> class.
+        /// </summary>
+        protected BaseUnitOfWork()
+        {
+            this._repositories = new List<IRepository>();
         }
 
         /// <summary>
