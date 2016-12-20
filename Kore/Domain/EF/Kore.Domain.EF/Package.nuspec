@@ -3,7 +3,7 @@
   <metadata>
     <id>Kore.Domain.EF</id>
     <title>Holotrek Kore (Kaiser-Core) - EF Domain</title>
-    <version>1.0.2-beta</version>
+    <version>1.0.3</version>
     <projectUrl>https://github.com/holotrek/kore-csharp</projectUrl>
     <licenseUrl>http://choosealicense.com/licenses/mit/</licenseUrl>
     <iconUrl>https://raw.githubusercontent.com/holotrek/kore-csharp/master/icons/Kore_64.png</iconUrl>
@@ -13,7 +13,7 @@
     <description>Infrastructure for integrating the Holotrek's Core with the Entity Framework ORM.</description>
     <tags>Core Domain EF</tags>
     <dependencies>
-      <dependency id="Kore" version="1.0.2"></dependency>
+      <dependency id="Kore" version="1.0.3"></dependency>
       <dependency id="EntityFramework" version="6.1.3"></dependency>
     </dependencies>
     <frameworkAssemblies>
