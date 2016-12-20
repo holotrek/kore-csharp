@@ -43,6 +43,11 @@ namespace Kore.Domain.EF.Context
         #endregion
 
         #region Properties
+        
+        /// <summary>
+        /// Gets the unit of work.
+        /// </summary>
+        public virtual IUnitOfWork UnitOfWork { get; protected set; }
 
         /// <summary>
         /// Gets the current user.
@@ -137,15 +142,6 @@ namespace Kore.Domain.EF.Context
     public abstract class EFRepository<TContext> : EFRepository, IRepository
         where TContext : DbContext
     {
-        #region Private Fields
-
-        /// <summary>
-        /// The authentication provider
-        /// </summary>
-        private IAuthenticationProvider _authenticationProvider;
-
-        #endregion
-
         #region Constructors
 
         /// <summary>
@@ -156,9 +152,9 @@ namespace Kore.Domain.EF.Context
         public EFRepository(EFUnitOfWork unitOfWork, ContextConfiguration<TContext> configuration)
             : base(unitOfWork.Connection)
         {
+            this.UnitOfWork = unitOfWork;
+            this.UnitOfWork.AddRepository(this);
             this.ConfigureContext(configuration);
-            unitOfWork.AddRepository(this);
-            this._authenticationProvider = unitOfWork.AuthenticationProvider;
         }
 
         /// <summary>
@@ -193,7 +189,7 @@ namespace Kore.Domain.EF.Context
         {
             get
             {
-                return this._authenticationProvider.CurrentUser;
+                return this.UnitOfWork.AuthenticationProvider.CurrentUser;
             }
         }
 

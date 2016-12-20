@@ -23,6 +23,11 @@ namespace Kore.Domain.Context
         /// </summary>
         IUser CurrentUser { get; }
 
+        /// <summary>
+        /// Gets the unit of work.
+        /// </summary>
+        IUnitOfWork UnitOfWork { get; }
+
         #endregion
 
         #region Methods

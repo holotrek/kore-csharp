@@ -27,11 +27,6 @@ namespace Kore.Domain.LiteDb.Context
         private List<IEntity> _trackedEntities = new List<IEntity>();
 
         /// <summary>
-        /// The authentication provider
-        /// </summary>
-        private IAuthenticationProvider _authenticationProvider;
-
-        /// <summary>
         /// Whether the unit of work has been disposed.
         /// </summary>
         private bool _disposed = false;
@@ -48,9 +43,9 @@ namespace Kore.Domain.LiteDb.Context
         public LiteDbRepository(LiteDbUnitOfWork unitOfWork, RepositoryConfiguration configuration)
             : this()
         {
-            unitOfWork.AddRepository(this);
+            this.UnitOfWork = unitOfWork;
+            this.UnitOfWork.AddRepository(this);
             this.Connection = unitOfWork.Connection;
-            this._authenticationProvider = unitOfWork.AuthenticationProvider;
             this.CustomConfiguration = configuration;
         }
 
@@ -79,12 +74,17 @@ namespace Kore.Domain.LiteDb.Context
         /// Gets or sets the connection.
         /// </summary>
         /// <value>The connection.</value>
-        public virtual LiteDatabase Connection { get; set; }
+        public virtual LiteDatabase Connection { get; private set; }
 
         /// <summary>
         /// Gets the custom configuration.
         /// </summary>
         public virtual RepositoryConfiguration CustomConfiguration { get; private set; }
+
+        /// <summary>
+        /// Gets the unit of work.
+        /// </summary>
+        public virtual IUnitOfWork UnitOfWork { get; private set; }
 
         /// <summary>
         /// Gets the current user.
@@ -93,7 +93,7 @@ namespace Kore.Domain.LiteDb.Context
         {
             get
             {
-                return this._authenticationProvider.CurrentUser;
+                return this.UnitOfWork.AuthenticationProvider.CurrentUser;
             }
         }
 

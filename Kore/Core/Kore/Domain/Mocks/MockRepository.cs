@@ -37,11 +37,6 @@ namespace Kore.Domain.Tests
         private List<IEntity> _data;
 
         /// <summary>
-        /// The authentication provider
-        /// </summary>
-        private IAuthenticationProvider _authenticationProvider;
-
-        /// <summary>
         /// The serialization provider
         /// </summary>
         private ISerializationProvider _serializationProvider;
@@ -58,10 +53,10 @@ namespace Kore.Domain.Tests
         /// <param name="seedData">The seed data.</param>
         public MockRepository(MockUnitOfWork unitOfWork, ISerializationProvider serializationProvider, IEnumerable<IEntity> seedData)
         {
-            unitOfWork.AddRepository(this);
+            this.UnitOfWork = unitOfWork;
+            this.UnitOfWork.AddRepository(this);
             this._data = seedData.ToList();
             this._initialData = serializationProvider.SerializeObject(seedData);
-            this._authenticationProvider = unitOfWork.AuthenticationProvider;
             this._serializationProvider = serializationProvider;
         }
 
@@ -87,6 +82,12 @@ namespace Kore.Domain.Tests
         #region Public Properties
 
         /// <summary>
+        /// Gets the unit of work.
+        /// </summary>
+        /// <value>The unit of work.</value>
+        public IUnitOfWork UnitOfWork { get; private set; }
+
+        /// <summary>
         /// Gets the current user.
         /// </summary>
         /// <value>The current user.</value>
@@ -94,7 +95,7 @@ namespace Kore.Domain.Tests
         {
             get
             {
-                return this._authenticationProvider.CurrentUser;
+                return this.UnitOfWork.AuthenticationProvider.CurrentUser;
             }
         }
 
