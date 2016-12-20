@@ -10,7 +10,7 @@ using System.Globalization;
 namespace Kore.Formatters
 {
     /// <summary>
-    /// Concrete implementation of a formatter that takes a <see cref="DateTime?"/> and formats it based on the current culture
+    /// Concrete implementation of a formatter that takes a <see cref="Nullable{DateTime}"/> and formats it based on the current culture
     /// </summary>
     public class DateFormatter : IDateFormatter
     {

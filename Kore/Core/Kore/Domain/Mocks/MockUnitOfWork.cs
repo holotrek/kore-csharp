@@ -18,7 +18,7 @@ namespace Kore.Domain.Tests
     /// An implementation of Unit of Work that can be used in tests.
     /// </summary>
     /// <seealso cref="Kore.Domain.Context.BaseUnitOfWork" />
-    /// <seealso cref="Kore.Domain.Context.IUnitOfWork{Kore.Domain.Tests.MockRepository}" />
+    /// <seealso cref="Kore.Domain.Context.IUnitOfWork" />
     public class MockUnitOfWork : BaseUnitOfWork, IUnitOfWork
     {
         #region Private Fields

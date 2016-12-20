@@ -9,7 +9,7 @@ namespace Kore.Service.Infrastructure
     /// <summary>
     /// A contract for the validation within a service layer.
     /// </summary>
-    /// <seealso cref="psice.Service.Infrastructure.IService" />
+    /// <seealso cref="Kore.Service.Infrastructure.IService" />
     public interface IServiceValidator : IService
     {
         /// <summary>

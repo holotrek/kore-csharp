@@ -11,7 +11,7 @@ namespace Kore.Formatters
 {
     /// <summary>
     /// Indicates that the property is a string that will receive the formatted date with the data from
-    /// another property of type <see cref="DateTime"/> or <see cref="DateTime?"/>.
+    /// another property of type <see cref="DateTime"/> or <see cref="Nullable{DateTime}"/>.
     /// </summary>
     /// <seealso cref="System.Attribute" />
     public class FormattedDateAttribute : BaseFormatAttribute, IFormatAttribute<IDateFormatter>

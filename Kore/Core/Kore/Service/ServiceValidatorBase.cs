@@ -20,9 +20,9 @@ namespace Kore.Service.Infrastructure
     /// <summary>
     /// A base implementation of the validation within a service layer.
     /// </summary>
-    /// <seealso cref="psice.Service.Infrastructure.ServiceBase" />
-    /// <seealso cref="psice.Service.Infrastructure.IService" />
-    /// <seealso cref="psice.Service.Infrastructure.IServiceValidator" />
+    /// <seealso cref="Kore.Service.Infrastructure.ServiceBase" />
+    /// <seealso cref="Kore.Service.Infrastructure.IService" />
+    /// <seealso cref="Kore.Service.Infrastructure.IServiceValidator" />
     public abstract class ServiceValidatorBase : ServiceBase, IService, IServiceValidator
     {
         /// <summary>

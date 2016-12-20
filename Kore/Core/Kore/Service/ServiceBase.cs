@@ -16,7 +16,7 @@ namespace Kore.Service.Infrastructure
     /// <summary>
     /// A base implementation for a service-layer class that performs discrete Unit of Work actions and holds containers for cross-cutting concerns.
     /// </summary>
-    /// <seealso cref="psice.Service.Infrastructure.IService" />
+    /// <seealso cref="Kore.Service.Infrastructure.IService" />
     public abstract class ServiceBase : IService
     {
         /// <summary>

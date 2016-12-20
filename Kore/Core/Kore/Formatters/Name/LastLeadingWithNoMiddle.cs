@@ -11,7 +11,7 @@ namespace Kore.Formatters
     /// <summary>
     /// A full name formatter that returns a name in the format "Last, First".
     /// </summary>
-    /// <seealso cref="Kore.Formatters.Name.IFullNameFormatter" />
+    /// <seealso cref="Kore.Formatters.IFullNameFormatter" />
     public class LastLeadingWithNoMiddle : IFullNameFormatter
     {
         /// <summary>

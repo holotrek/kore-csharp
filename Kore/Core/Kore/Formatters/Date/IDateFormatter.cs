@@ -9,7 +9,7 @@ using System;
 namespace Kore.Formatters
 {
     /// <summary>
-    /// Contract for a formatter that takes a <see cref="DateTime?"/> and formats it based on the current culture
+    /// Contract for a formatter that takes a <see cref="Nullable{DateTime}"/> and formats it based on the current culture
     /// </summary>
     public interface IDateFormatter : IFormatter
     {

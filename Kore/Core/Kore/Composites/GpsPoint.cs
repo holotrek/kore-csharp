@@ -13,7 +13,7 @@ namespace Kore.Composites
     /// <summary>
     /// Represents a point on Earth in the global positioning system
     /// </summary>
-    /// <seealso cref="Kore.Domain.Context.ValueObject{Kore.Composites.GpsPoint}" />
+    /// <seealso cref="Kore.Domain.Context.ValueObject{GpsPoint}" />
     public class GpsPoint : ValueObject<GpsPoint>
     {
         #region Public Constants
