@@ -13,7 +13,7 @@
     <description>An implementation of the Holotrek's Logging provider that uses NLog.</description>
     <tags>Core Providers Logging NLog</tags>
     <dependencies>
-      <dependency id="Kore" version="1.0.4"></dependency>
+      <dependency id="Kore" version="1.0.7"></dependency>
       <dependency id="NLog" version="4.3.11"></dependency>
     </dependencies>
   </metadata>

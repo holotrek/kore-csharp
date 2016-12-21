@@ -13,7 +13,7 @@
     <description>An implementation of the Holotrek's Logging provider that uses log4net.</description>
     <tags>Core Providers Logging log4net</tags>
     <dependencies>
-      <dependency id="Kore" version="1.0.4"></dependency>
+      <dependency id="Kore" version="1.0.7"></dependency>
       <dependency id="log4net" version="2.0.5"></dependency>
     </dependencies>
   </metadata>
