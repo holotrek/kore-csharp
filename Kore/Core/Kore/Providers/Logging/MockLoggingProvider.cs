@@ -69,11 +69,7 @@ namespace Kore.Providers.Logging
         /// <param name="exception">The exception.</param>
         public void Log(Exception exception)
         {
-            this._logs.Add(new MockLog
-            {
-                Level = Severity.Fatal,
-                Message = exception.GetMostInner().Message
-            });
+            this.Log(exception, null);
         }
 
         /// <summary>
@@ -81,15 +77,26 @@ namespace Kore.Providers.Logging
         /// </summary>
         /// <param name="exception">The exception.</param>
         /// <param name="referenceId">The reference identifier.</param>
-        public void Log(Exception exception, Guid referenceId)
+        public void Log(Exception exception, Guid? referenceId)
         {
-            this._logsByReference.Add(
-                referenceId,
-                new MockLog
+            if (referenceId.HasValue)
+            {
+                this._logsByReference.Add(
+                    referenceId.Value,
+                    new MockLog
+                    {
+                        Level = Severity.Fatal,
+                        Message = exception.GetMostInner().Message
+                    });
+            }
+            else
+            {
+                this._logs.Add(new MockLog
                 {
                     Level = Severity.Fatal,
                     Message = exception.GetMostInner().Message
                 });
+            }
         }
 
         /// <summary>
@@ -130,11 +137,7 @@ namespace Kore.Providers.Logging
         /// <param name="param">The optional parameters.</param>
         public void Log(string message, Severity severity, params object[] param)
         {
-            this._logs.Add(new MockLog
-            {
-                Level = severity,
-                Message = string.Format(message, param)
-            });
+            this.Log(message, severity, null, param);
         }
 
         /// <summary>
@@ -146,7 +149,7 @@ namespace Kore.Providers.Logging
         /// <param name="messageType">Type of the message.</param>
         /// <param name="referenceId">The reference identifier.</param>
         /// <param name="param">The optional parameters.</param>
-        public void Log(string message, MessageType messageType, Guid referenceId, params object[] param)
+        public void Log(string message, MessageType messageType, Guid? referenceId, params object[] param)
         {
             Severity s = Severity.Trace;
             switch (messageType)
@@ -175,15 +178,26 @@ namespace Kore.Providers.Logging
         /// <param name="severity">The severity.</param>
         /// <param name="referenceId">The reference identifier.</param>
         /// <param name="param">The optional parameters.</param>
-        public void Log(string message, Severity severity, Guid referenceId, params object[] param)
+        public void Log(string message, Severity severity, Guid? referenceId, params object[] param)
         {
-            this._logsByReference.Add(
-                referenceId,
+            if (referenceId.HasValue)
+            {
+                this._logsByReference.Add(
+                referenceId.Value,
                 new MockLog
                 {
                     Level = severity,
                     Message = string.Format(message, param)
                 });
+            }
+            else
+            {
+                this._logs.Add(new MockLog
+                {
+                    Level = severity,
+                    Message = string.Format(message, param)
+                });
+            }
         }
 
         #endregion

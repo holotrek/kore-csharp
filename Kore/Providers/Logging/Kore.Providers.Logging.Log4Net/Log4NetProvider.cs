@@ -38,9 +38,34 @@ namespace Kore.Providers.Logging
         /// <param name="param">The optional parameters.</param>
         public virtual void Log(string message, Severity severity, params object[] param)
         {
+            this.Log(message, severity, null, param);
+        }
+
+        /// <summary>
+        /// Logs the specified message.
+        /// </summary>
+        /// <param name="message">The message.</param>
+        /// <param name="severity">The severity.</param>
+        /// <param name="referenceId">The reference identifier.</param>
+        /// <param name="param">The optional parameters.</param>
+        public virtual void Log(string message, Severity severity, Guid? referenceId, params object[] param)
+        {
+            if (referenceId.HasValue)
+            {
+                log4net.GlobalContext.Properties["ReferenceId"] = referenceId.ToString();
+            }
+            else
+            {
+                log4net.GlobalContext.Properties["ReferenceId"] = null;
+            }
+
             if (severity == Severity.Error || severity == Severity.Fatal)
             {
                 log4net.GlobalContext.Properties["StackTrace"] = this.GetCallingMethodStackTrace();
+            }
+            else
+            {
+                log4net.GlobalContext.Properties["StackTrace"] = null;
             }
 
             string formatted = param.Count() > 0 ? string.Format(message, param) : message;
@@ -68,19 +93,6 @@ namespace Kore.Providers.Logging
         }
 
         /// <summary>
-        /// Logs the specified message.
-        /// </summary>
-        /// <param name="message">The message.</param>
-        /// <param name="severity">The severity.</param>
-        /// <param name="referenceId">The reference identifier.</param>
-        /// <param name="param">The optional parameters.</param>
-        public virtual void Log(string message, Severity severity, Guid referenceId, params object[] param)
-        {
-            log4net.GlobalContext.Properties["ReferenceId"] = referenceId.ToString();
-            this.Log(message, severity, param);
-        }
-
-        /// <summary>
         /// Logs the specified message and infers the severity of the log from the type of message that was
         /// also sent down to the consuming program (example: A message type of Info could log Info, but should
         /// never log an Error/Fatal).
@@ -90,6 +102,38 @@ namespace Kore.Providers.Logging
         /// <param name="param">The optional parameters.</param>
         public virtual void Log(string message, MessageType messageType, params object[] param)
         {
+            this.Log(message, messageType, null, param);
+        }
+
+        /// <summary>
+        /// Logs the specified message and infers the severity of the log from the type of message that was
+        /// also sent down to the consuming program (example: A message type of Info could log Info, but should
+        /// never log an Error/Fatal).
+        /// </summary>
+        /// <param name="message">The message.</param>
+        /// <param name="messageType">Type of the message.</param>
+        /// <param name="referenceId">The reference identifier.</param>
+        /// <param name="param">The optional parameters.</param>
+        public virtual void Log(string message, MessageType messageType, Guid? referenceId, params object[] param)
+        {
+            if (referenceId.HasValue)
+            {
+                log4net.GlobalContext.Properties["ReferenceId"] = referenceId.ToString();
+            }
+            else
+            {
+                log4net.GlobalContext.Properties["ReferenceId"] = null;
+            }
+
+            if (messageType == MessageType.Error)
+            {
+                log4net.GlobalContext.Properties["StackTrace"] = this.GetCallingMethodStackTrace();
+            }
+            else
+            {
+                log4net.GlobalContext.Properties["StackTrace"] = null;
+            }
+
             Severity s = Severity.Trace;
             switch (messageType)
             {
@@ -111,28 +155,12 @@ namespace Kore.Providers.Logging
         }
 
         /// <summary>
-        /// Logs the specified message and infers the severity of the log from the type of message that was
-        /// also sent down to the consuming program (example: A message type of Info could log Info, but should
-        /// never log an Error/Fatal).
-        /// </summary>
-        /// <param name="message">The message.</param>
-        /// <param name="messageType">Type of the message.</param>
-        /// <param name="referenceId">The reference identifier.</param>
-        /// <param name="param">The optional parameters.</param>
-        public virtual void Log(string message, MessageType messageType, Guid referenceId, params object[] param)
-        {
-            log4net.GlobalContext.Properties["ReferenceId"] = referenceId.ToString();
-            this.Log(message, messageType, param);
-        }
-
-        /// <summary>
         /// Logs the specified exception.
         /// </summary>
         /// <param name="exception">The exception.</param>
         public virtual void Log(Exception exception)
         {
-            log4net.GlobalContext.Properties["StackTrace"] = this.GetCallingMethodStackTrace();
-            Log4NetProvider.Logger.Fatal(exception);
+            this.Log(exception, null);
         }
 
         /// <summary>
@@ -140,10 +168,19 @@ namespace Kore.Providers.Logging
         /// </summary>
         /// <param name="exception">The exception.</param>
         /// <param name="referenceId">The reference identifier.</param>
-        public virtual void Log(Exception exception, Guid referenceId)
+        public virtual void Log(Exception exception, Guid? referenceId)
         {
-            log4net.GlobalContext.Properties["ReferenceId"] = referenceId.ToString();
-            this.Log(exception);
+            if (referenceId.HasValue)
+            {
+                log4net.GlobalContext.Properties["ReferenceId"] = referenceId.ToString();
+            }
+            else
+            {
+                log4net.GlobalContext.Properties["ReferenceId"] = null;
+            }
+
+            log4net.GlobalContext.Properties["StackTrace"] = this.GetCallingMethodStackTrace();
+            Log4NetProvider.Logger.Fatal(exception);
         }
 
         #endregion

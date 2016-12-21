@@ -41,8 +41,7 @@ namespace Kore.Providers.Logging
         /// <param name="param">The optional parameters.</param>
         public virtual void Log(string message, Severity severity, params object[] param)
         {
-            GlobalDiagnosticsContext.Set("StackTrace", this.GetCallingMethodStackTrace());
-            NLogProvider.Logger.Log(LogLevel.FromOrdinal((int)severity), param.Count() > 0 ? string.Format(message, param) : message);
+            this.Log(message, severity, null, param);
         }
 
         /// <summary>
@@ -52,10 +51,10 @@ namespace Kore.Providers.Logging
         /// <param name="severity">The severity.</param>
         /// <param name="referenceId">The reference identifier.</param>
         /// <param name="param">The optional parameters.</param>
-        public virtual void Log(string message, Severity severity, Guid referenceId, params object[] param)
+        public virtual void Log(string message, Severity severity, Guid? referenceId, params object[] param)
         {
-            GlobalDiagnosticsContext.Set("ReferenceId", referenceId.ToString());
-            this.Log(message, severity, param);
+            GlobalDiagnosticsContext.Set("StackTrace", this.GetCallingMethodStackTrace());
+            NLogProvider.Logger.Log(LogLevel.FromOrdinal((int)severity), param.Count() > 0 ? string.Format(message, param) : message);
         }
 
         /// <summary>
@@ -68,6 +67,29 @@ namespace Kore.Providers.Logging
         /// <param name="param">The optional parameters.</param>
         public virtual void Log(string message, MessageType messageType, params object[] param)
         {
+            this.Log(message, messageType, null, param);
+        }
+
+        /// <summary>
+        /// Logs the specified message and infers the severity of the log from the type of message that was
+        /// also sent down to the consuming program (example: A message type of Info could log Info, but should
+        /// never log an Error/Fatal).
+        /// </summary>
+        /// <param name="message">The message.</param>
+        /// <param name="messageType">Type of the message.</param>
+        /// <param name="referenceId">The reference identifier.</param>
+        /// <param name="param">The optional parameters.</param>
+        public virtual void Log(string message, MessageType messageType, Guid? referenceId, params object[] param)
+        {
+            if (referenceId.HasValue)
+            {
+                GlobalDiagnosticsContext.Set("ReferenceId", referenceId.ToString());
+            }
+            else
+            {
+                GlobalDiagnosticsContext.Set("ReferenceId", null);
+            }
+
             Severity s = Severity.Trace;
             switch (messageType)
             {
@@ -89,28 +111,12 @@ namespace Kore.Providers.Logging
         }
 
         /// <summary>
-        /// Logs the specified message and infers the severity of the log from the type of message that was
-        /// also sent down to the consuming program (example: A message type of Info could log Info, but should
-        /// never log an Error/Fatal).
-        /// </summary>
-        /// <param name="message">The message.</param>
-        /// <param name="messageType">Type of the message.</param>
-        /// <param name="referenceId">The reference identifier.</param>
-        /// <param name="param">The optional parameters.</param>
-        public virtual void Log(string message, MessageType messageType, Guid referenceId, params object[] param)
-        {
-            GlobalDiagnosticsContext.Set("ReferenceId", referenceId.ToString());
-            this.Log(message, messageType, param);
-        }
-
-        /// <summary>
         /// Logs the specified exception.
         /// </summary>
         /// <param name="exception">The exception.</param>
         public virtual void Log(Exception exception)
         {
-            GlobalDiagnosticsContext.Set("StackTrace", this.GetCallingMethodStackTrace());
-            NLogProvider.Logger.Log(LogLevel.Fatal, exception);
+            this.Log(exception, null);
         }
 
         /// <summary>
@@ -118,10 +124,19 @@ namespace Kore.Providers.Logging
         /// </summary>
         /// <param name="exception">The exception.</param>
         /// <param name="referenceId">The reference identifier.</param>
-        public virtual void Log(Exception exception, Guid referenceId)
+        public virtual void Log(Exception exception, Guid? referenceId)
         {
-            GlobalDiagnosticsContext.Set("ReferenceId", referenceId.ToString());
-            this.Log(exception);
+            if (referenceId.HasValue)
+            {
+                GlobalDiagnosticsContext.Set("ReferenceId", referenceId.ToString());
+            }
+            else
+            {
+                GlobalDiagnosticsContext.Set("ReferenceId", null);
+            }
+
+            GlobalDiagnosticsContext.Set("StackTrace", this.GetCallingMethodStackTrace());
+            NLogProvider.Logger.Log(LogLevel.Fatal, exception);
         }
 
         #endregion

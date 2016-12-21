@@ -31,7 +31,7 @@ namespace Kore.Providers.Logging
         /// <param name="severity">The severity.</param>
         /// <param name="referenceId">The reference identifier.</param>
         /// <param name="param">The optional parameters.</param>
-        void Log(string message, Severity severity, Guid referenceId, params object[] param);
+        void Log(string message, Severity severity, Guid? referenceId, params object[] param);
 
         /// <summary>
         /// Logs the specified message and infers the severity of the log from the type of message that was
@@ -52,7 +52,7 @@ namespace Kore.Providers.Logging
         /// <param name="messageType">Type of the message.</param>
         /// <param name="referenceId">The reference identifier.</param>
         /// <param name="param">The optional parameters.</param>
-        void Log(string message, MessageType messageType, Guid referenceId, params object[] param);
+        void Log(string message, MessageType messageType, Guid? referenceId, params object[] param);
 
         /// <summary>
         /// Logs the specified exception.
@@ -65,7 +65,7 @@ namespace Kore.Providers.Logging
         /// </summary>
         /// <param name="exception">The exception.</param>
         /// <param name="referenceId">The reference identifier.</param>
-        void Log(Exception exception, Guid referenceId);
+        void Log(Exception exception, Guid? referenceId);
 
         #endregion
     }
