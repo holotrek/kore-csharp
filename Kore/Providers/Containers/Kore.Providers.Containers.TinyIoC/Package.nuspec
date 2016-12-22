@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>Kore.Providers.Containers.TinyIoC</id>
+    <title>Holotrek Kore (Kaiser-Core) - TinyIoC Container Provider</title>
+    <version>1.0.0</version>
+    <projectUrl>https://github.com/holotrek/kore-csharp</projectUrl>
+    <licenseUrl>http://choosealicense.com/licenses/mit/</licenseUrl>
+    <iconUrl>https://raw.githubusercontent.com/holotrek/kore-csharp/master/icons/Kore_64.png</iconUrl>
+    <authors>Evan Kaiser</authors>
+    <owners>Holotrek</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>An implementation of the Holotrek's Container provider that uses TinyIoC.</description>
+    <tags>Core Providers Containers TinyIoC</tags>
+    <dependencies>
+      <dependency id="Kore" version="1.0.8"></dependency>
+      <dependency id="TinyIoC" version="1.3.0"></dependency>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="bin\Release\Kore.Providers.Containers.TinyIoC.dll" target="lib\Kore.Providers.Containers.TinyIoC.dll"></file>
+  </files>
+</package>

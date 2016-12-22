@@ -28,7 +28,8 @@ namespace Kore.Providers.Containers
         /// <typeparam name="T">The type of the object to resolve.</typeparam>
         /// <param name="name">The name.</param>
         /// <returns>The resolved object of the specified type identified by the name.</returns>
-        T Resolve<T>(string name);
+        T Resolve<T>(string name)
+            where T : class;
 
         /// <summary>
         /// Resolves the specified type and returns all matching instances.
@@ -42,6 +43,7 @@ namespace Kore.Providers.Containers
         /// </summary>
         /// <typeparam name="T">The type of the object to resolve.</typeparam>
         /// <returns>The collection of resolved objects of the specified type.</returns>
-        IEnumerable<T> ResolveAll<T>();
+        IEnumerable<T> ResolveAll<T>()
+            where T : class;
     }
 }

@@ -49,6 +49,7 @@ namespace Kore.Providers.Containers.Unity
         /// <param name="name">The name.</param>
         /// <returns>The resolved object of the specified type identified by the name.</returns>
         public T Resolve<T>(string name)
+            where T : class
         {
             return this.Container.Resolve<T>(name);
         }
@@ -69,6 +70,7 @@ namespace Kore.Providers.Containers.Unity
         /// <typeparam name="T">The type of the object to resolve.</typeparam>
         /// <returns>The collection of resolved objects of the specified type.</returns>
         public IEnumerable<T> ResolveAll<T>()
+            where T : class
         {
             return this.Container.ResolveAll<T>();
         }

@@ -71,6 +71,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kore.Providers.Serializatio
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kore.Providers.Messages.Resource.Tests", "Providers\Messages\Kore.Providers.Messages.Resource.Tests\Kore.Providers.Messages.Resource.Tests.csproj", "{6DEC6560-8A21-4177-B84D-6B1BEFFF4B6F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kore.Providers.Containers.TinyIoC", "Providers\Containers\Kore.Providers.Containers.TinyIoC\Kore.Providers.Containers.TinyIoC.csproj", "{8042363A-0F1F-45F7-9320-B5C8C475BCC7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -137,6 +139,10 @@ Global
 		{6DEC6560-8A21-4177-B84D-6B1BEFFF4B6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6DEC6560-8A21-4177-B84D-6B1BEFFF4B6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6DEC6560-8A21-4177-B84D-6B1BEFFF4B6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8042363A-0F1F-45F7-9320-B5C8C475BCC7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8042363A-0F1F-45F7-9320-B5C8C475BCC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8042363A-0F1F-45F7-9320-B5C8C475BCC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8042363A-0F1F-45F7-9320-B5C8C475BCC7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -168,5 +174,6 @@ Global
 		{11395987-C6F5-44C3-AD10-369F1C68699B} = {E9318170-4D65-43EB-B3AE-260D30884BF1}
 		{0A004A18-E3EF-4F51-A5A3-AEE5077F6874} = {D78E8460-E460-4474-9524-D26A462D7CE0}
 		{6DEC6560-8A21-4177-B84D-6B1BEFFF4B6F} = {F21F0FC6-4E60-49C9-B262-7A1F6E9C580B}
+		{8042363A-0F1F-45F7-9320-B5C8C475BCC7} = {6FC99E3E-AF8D-45D7-A224-81C380EBDAAB}
 	EndGlobalSection
 EndGlobal
