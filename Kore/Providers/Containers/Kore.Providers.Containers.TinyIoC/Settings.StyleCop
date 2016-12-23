@@ -61,4 +61,12 @@
       <AnalyzerSettings />
     </Analyzer>
   </Analyzers>
+  <SourceFileList>
+    <SourceFile>TinyIoC.cs</SourceFile>
+    <Settings>
+      <GlobalSettings>
+        <BooleanProperty Name="RulesEnabledByDefault">False</BooleanProperty>
+      </GlobalSettings>
+    </Settings>
+  </SourceFileList>
 </StyleCopSettings>

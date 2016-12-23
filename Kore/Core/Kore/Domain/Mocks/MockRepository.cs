@@ -109,7 +109,7 @@ namespace Kore.Domain.Tests
         /// <typeparam name="TEntity">The type of the entity.</typeparam>
         /// <returns>The resulting query of non-deleted entities.</returns>
         public virtual IEnumerable<TEntity> Get<TEntity>()
-            where TEntity : class, IEntity, new()
+            where TEntity : class, IEntity
         {
             return this.GetCollection<TEntity>().Where(x => !x.Deleted);
         }
@@ -120,7 +120,7 @@ namespace Kore.Domain.Tests
         /// <typeparam name="TEntity">The type of the entity.</typeparam>
         /// <returns>The resulting query of deleted entities.</returns>
         public virtual IEnumerable<TEntity> GetDeleted<TEntity>()
-            where TEntity : class, IEntity, new()
+            where TEntity : class, IEntity
         {
             return this.GetCollection<TEntity>().Where(x => x.Deleted);
         }
@@ -132,7 +132,7 @@ namespace Kore.Domain.Tests
         /// <param name="uniqueId">The unique identifier.</param>
         /// <returns>The resulting non-deleted entity.</returns>
         public virtual TEntity GetByUniqueId<TEntity>(string uniqueId)
-            where TEntity : class, IEntity, new()
+            where TEntity : class, IEntity
         {
             return this.Get<TEntity>().Where(x => x.UniqueId == uniqueId).FirstOrDefault();
         }
@@ -144,7 +144,7 @@ namespace Kore.Domain.Tests
         /// <param name="uniqueId">The unique identifier.</param>
         /// <returns>The resulting deleted entity.</returns>
         public virtual TEntity GetDeletedByUniqueId<TEntity>(string uniqueId)
-            where TEntity : class, IEntity, new()
+            where TEntity : class, IEntity
         {
             return this.GetDeleted<TEntity>().Where(x => x.UniqueId == uniqueId).FirstOrDefault();
         }
@@ -155,7 +155,7 @@ namespace Kore.Domain.Tests
         /// <typeparam name="TEntity">The type of the entity.</typeparam>
         /// <param name="entity">The entity.</param>
         public virtual void Add<TEntity>(TEntity entity)
-            where TEntity : class, IEntity, new()
+            where TEntity : class, IEntity
         {
             this.SetEntityStubFields<TEntity>(entity);
             if (!this._data.Where(x => x.UniqueId == entity.UniqueId).Any())
@@ -170,7 +170,7 @@ namespace Kore.Domain.Tests
         /// <typeparam name="TEntity">The type of the entity.</typeparam>
         /// <param name="entity">The entity.</param>
         public virtual void Update<TEntity>(TEntity entity)
-            where TEntity : class, IEntity, new()
+            where TEntity : class, IEntity
         {
             this.SetEntityStubFields<TEntity>(entity);
             IEntity foundEntity = this._data.Where(x => x.UniqueId == entity.UniqueId).FirstOrDefault();
@@ -187,7 +187,7 @@ namespace Kore.Domain.Tests
         /// <typeparam name="TEntity">The type of the entity.</typeparam>
         /// <param name="entity">The entity.</param>
         public virtual void Delete<TEntity>(TEntity entity)
-            where TEntity : class, IEntity, new()
+            where TEntity : class, IEntity
         {
             // Using logical deletes, so just update it
             if (entity.Deleted)

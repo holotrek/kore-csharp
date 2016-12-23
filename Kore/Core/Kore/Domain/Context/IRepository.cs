@@ -38,7 +38,7 @@ namespace Kore.Domain.Context
         /// <typeparam name="TEntity">The type of the entity.</typeparam>
         /// <returns>The resulting query of non-deleted entities.</returns>
         IEnumerable<TEntity> Get<TEntity>()
-            where TEntity : class, IEntity, new();
+            where TEntity : class, IEntity;
 
         /// <summary>
         /// Returns the query of deleted entities based on the type provided.
@@ -46,7 +46,7 @@ namespace Kore.Domain.Context
         /// <typeparam name="TEntity">The type of the entity.</typeparam>
         /// <returns>The resulting query of deleted entities.</returns>
         IEnumerable<TEntity> GetDeleted<TEntity>()
-            where TEntity : class, IEntity, new();
+            where TEntity : class, IEntity;
 
         /// <summary>
         /// Returns the non-deleted entity based on the type provided and a GUID.
@@ -55,7 +55,7 @@ namespace Kore.Domain.Context
         /// <param name="uniqueId">The unique identifier.</param>
         /// <returns>The resulting non-deleted entity.</returns>
         TEntity GetByUniqueId<TEntity>(string uniqueId)
-            where TEntity : class, IEntity, new();
+            where TEntity : class, IEntity;
 
         /// <summary>
         /// Returns the deleted entity based on the type provided and a GUID.
@@ -64,7 +64,7 @@ namespace Kore.Domain.Context
         /// <param name="uniqueId">The unique identifier.</param>
         /// <returns>The resulting deleted entity.</returns>
         TEntity GetDeletedByUniqueId<TEntity>(string uniqueId)
-            where TEntity : class, IEntity, new();
+            where TEntity : class, IEntity;
 
         /// <summary>
         /// Adds the specified entity.
@@ -72,7 +72,7 @@ namespace Kore.Domain.Context
         /// <typeparam name="TEntity">The type of the entity.</typeparam>
         /// <param name="entity">The entity.</param>
         void Add<TEntity>(TEntity entity)
-            where TEntity : class, IEntity, new();
+            where TEntity : class, IEntity;
 
         /// <summary>
         /// Updates the specified entity.
@@ -80,7 +80,7 @@ namespace Kore.Domain.Context
         /// <typeparam name="TEntity">The type of the entity.</typeparam>
         /// <param name="entity">The entity.</param>
         void Update<TEntity>(TEntity entity)
-            where TEntity : class, IEntity, new();
+            where TEntity : class, IEntity;
 
         /// <summary>
         /// Deletes the specified entity.
@@ -88,7 +88,7 @@ namespace Kore.Domain.Context
         /// <typeparam name="TEntity">The type of the entity.</typeparam>
         /// <param name="entity">The entity.</param>
         void Delete<TEntity>(TEntity entity)
-            where TEntity : class, IEntity, new();
+            where TEntity : class, IEntity;
 
         /// <summary>
         /// Sets the entity stub fields.

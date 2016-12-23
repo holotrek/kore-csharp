@@ -31,7 +31,10 @@ namespace Kore.Providers.Authentication
                     _currentUser = new MockUser
                     {
                         UserId = Guid.NewGuid().ToString(),
-                        UserName = "Test"
+                        UserName = "Test",
+                        FirstName = "Test",
+                        LastName = "User",
+                        MiddleName = "A"
                     };
                 }
 

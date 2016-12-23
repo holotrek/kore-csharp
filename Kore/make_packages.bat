@@ -6,7 +6,7 @@ cd %~dp0Domain\EF\Kore.Domain.EF
 nuget pack Package.nuspec
 copy Kore.*.nupkg %~dp0Nuget\.
 
-cd %~dp0Domain\LiteDb\Kore.Domain.LiteDb
+cd %~dp0Domain\RavenDb\Kore.Domain.RavenDb
 nuget pack Package.nuspec
 copy Kore.*.nupkg %~dp0Nuget\.
 
@@ -15,6 +15,10 @@ nuget pack Package.nuspec
 copy Kore.*.nupkg %~dp0Nuget\.
 
 cd %~dp0Providers\Containers\Kore.Providers.Containers.Unity
+nuget pack Package.nuspec
+copy Kore.*.nupkg %~dp0Nuget\.
+
+cd %~dp0Providers\Containers\Kore.Providers.Containers.TinyIoC
 nuget pack Package.nuspec
 copy Kore.*.nupkg %~dp0Nuget\.
 
