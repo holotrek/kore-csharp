@@ -40,27 +40,14 @@ namespace Kore.Domain.RavenDb.Context
         /// <summary>
         /// Initializes the document store.
         /// </summary>
-        /// <param name="runInMemory">if set to <c>true</c> [run in memory].</param>
         /// <param name="connectionStringName">Name of the connection string.</param>
-        public static void Initialize(bool runInMemory, string connectionStringName = null)
+        public static void Initialize(string connectionStringName)
         {
-            if (runInMemory)
+            instance = new EmbeddableDocumentStore
             {
-                instance = new EmbeddableDocumentStore
-                {
-                    RunInMemory = true,
-                    EnlistInDistributedTransactions = false
-                };
-            }
-            else
-            {
-                instance = new EmbeddableDocumentStore
-                {
-                    ConnectionStringName = connectionStringName
-                };
-            }
+                ConnectionStringName = connectionStringName
+            };
 
-            instance.Configuration.Storage.Voron.AllowOn32Bits = true;
             instance.Conventions.IdentityPartsSeparator = "-";
             instance.Initialize();
         }
