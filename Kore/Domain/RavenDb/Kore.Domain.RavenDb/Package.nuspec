@@ -13,7 +13,7 @@
     <description>Infrastructure for integrating the Holotrek's Core with the RavenDB NoSQL solution.</description>
     <tags>Core Domain EF</tags>
     <dependencies>
-      <dependency id="Kore" version="1.0.8"></dependency>
+      <dependency id="Kore" version="1.0.9"></dependency>
       <dependency id="RavenDB.Embedded" version="3.5.1"></dependency>
     </dependencies>
     <frameworkAssemblies>
