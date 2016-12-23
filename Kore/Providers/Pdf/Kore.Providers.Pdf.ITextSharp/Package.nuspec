@@ -12,6 +12,7 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>An implementation of the Holotrek's PDF provider that uses iTextSharp.</description>
     <tags>Core Providers PDF iTextSharp</tags>
+    <releaseNotes>Added RavenDB domain implementation and removed the LiteDB implementation.</releaseNotes>
     <dependencies>
       <dependency id="Kore" version="1.1.0"></dependency>
       <dependency id="ITextSharp" version="5.5.10"></dependency>

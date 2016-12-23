@@ -12,6 +12,7 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Holotrek's library for core components and providers that can be used by any C# .NET application.</description>
     <tags>Core MVC Web API</tags>
+    <releaseNotes>Added RavenDB domain implementation and removed the LiteDB implementation.</releaseNotes>
     <dependencies>
       <dependency id="System.Linq.Dynamic" version="1.0.6"></dependency>
     </dependencies>
