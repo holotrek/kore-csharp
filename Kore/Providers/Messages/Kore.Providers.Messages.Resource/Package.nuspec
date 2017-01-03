@@ -3,7 +3,7 @@
   <metadata>
     <id>Kore.Providers.Messages.Resource</id>
     <title>Holotrek Kore (Kaiser-Core) - Resource Message Provider</title>
-    <version>1.1.0</version>
+    <version>1.1.1</version>
     <projectUrl>https://github.com/holotrek/kore-csharp</projectUrl>
     <licenseUrl>http://choosealicense.com/licenses/mit/</licenseUrl>
     <iconUrl>https://raw.githubusercontent.com/holotrek/kore-csharp/master/icons/Kore_64.png</iconUrl>
@@ -12,7 +12,7 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>An implementation of the Holotrek's Messages provider that allows for referencing messages in a resource file by key string.</description>
     <tags>Core Providers Serialization Newtonsoft JSON</tags>
-    <releaseNotes>Added RavenDB domain implementation and removed the LiteDB implementation.</releaseNotes>
+    <releaseNotes>Fixed a problem with the AddMessage method missing the format parameters.</releaseNotes>
     <dependencies>
       <dependency id="Kore" version="1.1.0"></dependency>
     </dependencies>

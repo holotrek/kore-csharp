@@ -71,7 +71,7 @@ namespace Kore.Providers.Messages
         /// <returns>The message that was added.</returns>
         public override Message AddMessage(MessageType type, string message, params object[] param)
         {
-            return base.AddMessage(type, this.ResourceManager.GetString(message, this.CurrentCulture));
+            return base.AddMessage(type, this.ResourceManager.GetString(message, this.CurrentCulture), param);
         }
 
         /// <summary>
