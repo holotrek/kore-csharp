@@ -52,7 +52,7 @@ namespace Kore.Tests
         [TestMethod]
         public void MessageIsAddedWithoutLogger()
         {
-            var mp = new BaseMessageProvider();
+            var mp = new BaseMessageProvider(true);
             mp.AddMessage(MessageType.Error, "Test Error");
             Assert.IsNull(mp.Logger);
             Assert.IsTrue(mp.Messages.Any());

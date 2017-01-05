@@ -27,6 +27,7 @@ namespace Kore.Providers.Messages
         /// <param name="currentCulture">The current culture.</param>
         /// <param name="resourceManager">The resource manager.</param>
         /// <param name="logger">The logger.</param>
+        [Obsolete("Use ResourceMessageProvider(string, ResourceManager, bool, ILoggingProvider) instead")]
         public ResourceMessageProvider(string currentCulture, ResourceManager resourceManager, ILoggingProvider logger)
             : base(logger)
         {
@@ -39,11 +40,37 @@ namespace Kore.Providers.Messages
         /// </summary>
         /// <param name="currentCulture">The current culture.</param>
         /// <param name="resourceManager">The resource manager.</param>
+        /// <param name="isDebug">if set to <c>true</c> [is debug].</param>
+        /// <param name="logger">The logger.</param>
+        public ResourceMessageProvider(string currentCulture, ResourceManager resourceManager, bool isDebug, ILoggingProvider logger)
+            : base(isDebug, logger)
+        {
+            this.CurrentCulture = new CultureInfo(currentCulture);
+            this.ResourceManager = resourceManager;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ResourceMessageProvider" /> class.
+        /// </summary>
+        /// <param name="currentCulture">The current culture.</param>
+        /// <param name="resourceManager">The resource manager.</param>
+        [Obsolete("Use ResourceMessageProvider(string, ResourceManager, bool) instead")]
         public ResourceMessageProvider(string currentCulture, ResourceManager resourceManager)
             : this(currentCulture, resourceManager, null)
         {
         }
-        
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ResourceMessageProvider" /> class.
+        /// </summary>
+        /// <param name="currentCulture">The current culture.</param>
+        /// <param name="resourceManager">The resource manager.</param>
+        /// <param name="isDebug">if set to <c>true</c> [is debug].</param>
+        public ResourceMessageProvider(string currentCulture, ResourceManager resourceManager, bool isDebug)
+            : this(currentCulture, resourceManager, isDebug, null)
+        {
+        }
+
         #endregion
 
         #region Public Properties

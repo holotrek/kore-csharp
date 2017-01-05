@@ -13,6 +13,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Kore.Domain.Context;
 using Kore.Providers.Authentication;
+using Kore.Providers.Messages;
 
 namespace Kore.Domain.EF.Context
 {
@@ -43,11 +44,18 @@ namespace Kore.Domain.EF.Context
         #endregion
 
         #region Properties
-        
+
         /// <summary>
         /// Gets or sets the unit of work.
         /// </summary>
+        /// <value>The unit of work.</value>
         public virtual IUnitOfWork UnitOfWork { get; protected set; }
+
+        /// <summary>
+        /// Gets or sets the message provider.
+        /// </summary>
+        /// <value>The message provider.</value>
+        public virtual IMessageProvider MessageProvider { get; protected set; }
 
         /// <summary>
         /// Gets the current user.
@@ -149,12 +157,34 @@ namespace Kore.Domain.EF.Context
         /// </summary>
         /// <param name="unitOfWork">The unit of work.</param>
         /// <param name="configuration">The configuration.</param>
-        public EFRepository(EFUnitOfWork unitOfWork, ContextConfiguration<TContext> configuration)
+        /// <param name="messageProvider">The message provider.</param>
+        public EFRepository(EFUnitOfWork unitOfWork, ContextConfiguration<TContext> configuration, IMessageProvider messageProvider)
             : base(unitOfWork.Connection)
         {
             this.UnitOfWork = unitOfWork;
             this.UnitOfWork.AddRepository(this);
             this.ConfigureContext(configuration);
+            this.MessageProvider = messageProvider;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="EFRepository{TContext}" /> class.
+        /// </summary>
+        /// <param name="unitOfWork">The unit of work.</param>
+        /// <param name="configuration">The configuration.</param>
+        public EFRepository(EFUnitOfWork unitOfWork, ContextConfiguration<TContext> configuration)
+            : this(unitOfWork, configuration, null)
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="EFRepository{TContext}" /> class.
+        /// </summary>
+        /// <param name="unitOfWork">The unit of work.</param>
+        /// <param name="messageProvider">The message provider.</param>
+        public EFRepository(EFUnitOfWork unitOfWork, IMessageProvider messageProvider)
+            : this(unitOfWork, new ContextConfiguration<TContext>(), messageProvider)
+        {
         }
 
         /// <summary>
@@ -167,9 +197,10 @@ namespace Kore.Domain.EF.Context
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="EFRepository{TContext}"/> class.
+        /// Initializes a new instance of the <see cref="EFRepository{TContext}" /> class.
         /// </summary>
-        protected EFRepository()
+        /// <param name="messageProvider">The message provider.</param>
+        protected EFRepository(IMessageProvider messageProvider)
         {
         }
 

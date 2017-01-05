@@ -38,6 +38,7 @@ namespace Kore.Domain.RavenDb.Context
         /// <param name="authenticationProvider">The authentication provider.</param>
         /// <param name="messageProvider">The message provider.</param>
         /// <param name="eventDispatcher">The event dispatcher.</param>
+        /// <param name="documentStore">The document store.</param>
         public RavenUnitOfWork(IAuthenticationProvider authenticationProvider, IMessageProvider messageProvider, IDomainEventDispatcher eventDispatcher, IDocumentStore documentStore)
             : base(authenticationProvider, messageProvider, eventDispatcher)
         {

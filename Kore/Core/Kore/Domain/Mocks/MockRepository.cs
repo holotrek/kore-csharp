@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Kore.Domain.Context;
 using Kore.Providers.Authentication;
+using Kore.Providers.Messages;
 using Kore.Providers.Serialization;
 
 namespace Kore.Domain.Tests
@@ -48,10 +49,12 @@ namespace Kore.Domain.Tests
         /// <summary>
         /// Initializes a new instance of the <see cref="MockRepository" /> class.
         /// </summary>
+        /// <param name="messageProvider">The message provider.</param>
         /// <param name="unitOfWork">The unit of work.</param>
         /// <param name="serializationProvider">The serialization provider.</param>
         /// <param name="seedData">The seed data.</param>
-        public MockRepository(MockUnitOfWork unitOfWork, ISerializationProvider serializationProvider, IEnumerable<IEntity> seedData)
+        public MockRepository(IMessageProvider messageProvider, MockUnitOfWork unitOfWork, ISerializationProvider serializationProvider, IEnumerable<IEntity> seedData)
+            : this(messageProvider)
         {
             this.UnitOfWork = unitOfWork;
             this.UnitOfWork.AddRepository(this);
@@ -63,18 +66,21 @@ namespace Kore.Domain.Tests
         /// <summary>
         /// Initializes a new instance of the <see cref="MockRepository" /> class.
         /// </summary>
+        /// <param name="messageProvider">The message provider.</param>
         /// <param name="unitOfWork">The unit of work.</param>
         /// <param name="serializationProvider">The serialization provider.</param>
-        public MockRepository(MockUnitOfWork unitOfWork, ISerializationProvider serializationProvider)
-            : this(unitOfWork, serializationProvider, new List<IEntity>())
+        public MockRepository(IMessageProvider messageProvider, MockUnitOfWork unitOfWork, ISerializationProvider serializationProvider)
+            : this(messageProvider, unitOfWork, serializationProvider, new List<IEntity>())
         {
         }
 
         /// <summary>
-        /// Prevents a default instance of the <see cref="MockRepository"/> class from being created.
+        /// Initializes a new instance of the <see cref="MockRepository"/> class.
         /// </summary>
-        private MockRepository()
+        /// <param name="messageProvider">The message provider.</param>
+        private MockRepository(IMessageProvider messageProvider)
         {
+            this.MessageProvider = messageProvider;
         }
 
         #endregion
@@ -98,6 +104,11 @@ namespace Kore.Domain.Tests
                 return this.UnitOfWork.AuthenticationProvider.CurrentUser;
             }
         }
+
+        /// <summary>
+        /// Gets the message provider.
+        /// </summary>
+        public IMessageProvider MessageProvider { get; private set; }
 
         #endregion
 

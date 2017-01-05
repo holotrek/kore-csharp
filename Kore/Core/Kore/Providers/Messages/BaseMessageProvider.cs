@@ -34,8 +34,19 @@ namespace Kore.Providers.Messages
         /// <summary>
         /// Initializes a new instance of the <see cref="BaseMessageProvider" /> class.
         /// </summary>
+        [Obsolete("Use BaseMessageProvider(bool) instead")]
         public BaseMessageProvider()
+            : this(false)
         {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="BaseMessageProvider" /> class.
+        /// </summary>
+        /// <param name="isDebug">if set to <c>true</c> [is debug].</param>
+        public BaseMessageProvider(bool isDebug)
+        {
+            this.IsDebug = isDebug;
             this._messages = new List<Message>();
         }
 
@@ -43,8 +54,19 @@ namespace Kore.Providers.Messages
         /// Initializes a new instance of the <see cref="BaseMessageProvider" /> class.
         /// </summary>
         /// <param name="logger">The logger.</param>
+        [Obsolete("Use BaseMessageProvider(bool, ILoggingProvider) instead")]
         public BaseMessageProvider(ILoggingProvider logger)
-            : this()
+            : this(false, logger)
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="BaseMessageProvider" /> class.
+        /// </summary>
+        /// <param name="isDebug">if set to <c>true</c> [is debug].</param>
+        /// <param name="logger">The logger.</param>
+        public BaseMessageProvider(bool isDebug, ILoggingProvider logger)
+            : this(isDebug)
         {
             this.Logger = logger;
         }
@@ -79,6 +101,12 @@ namespace Kore.Providers.Messages
                 return this.GetMessages(MessageType.Error).Count() > 0;
             }
         }
+
+        /// <summary>
+        /// Gets a value indicating whether this instance is debug.
+        /// </summary>
+        /// <value><c>true</c> if this instance is debug; otherwise, <c>false</c>.</value>
+        public bool IsDebug { get; private set; }
 
         #endregion
 
@@ -123,11 +151,14 @@ namespace Kore.Providers.Messages
                 Type = MessageType.Error
             };
 
-#if DEBUG
-            m.Text = string.Format("Exception occurred. Message: {0}; Stack Trace: {1}.", mostInner.Message, exception.StackTrace);
-#else
-            m.Text = string.Format(this.ExceptionMessage, m.ReferenceId);
-#endif
+            if (this.IsDebug)
+            {
+                m.Text = string.Format("Exception occurred. Message: {0}; Stack Trace: {1}.", mostInner.Message, exception.StackTrace);
+            }
+            else
+            {
+                m.Text = string.Format(this.ExceptionMessage, m.ReferenceId);
+            }
 
             if (this.Logger != null)
             {

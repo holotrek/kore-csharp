@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Kore.Domain.Context;
 using Kore.Providers.Authentication;
+using Kore.Providers.Messages;
 using Raven.Client;
 
 namespace Kore.Domain.RavenDb.Context
@@ -40,13 +41,35 @@ namespace Kore.Domain.RavenDb.Context
         /// </summary>
         /// <param name="unitOfWork">The unit of work.</param>
         /// <param name="configuration">The configuration.</param>
-        public RavenRepository(RavenUnitOfWork unitOfWork, RepositoryConfiguration configuration)
+        /// <param name="messageProvider">The message provider.</param>
+        public RavenRepository(RavenUnitOfWork unitOfWork, RepositoryConfiguration configuration, IMessageProvider messageProvider)
             : this()
         {
             this.UnitOfWork = unitOfWork;
             this.UnitOfWork.AddRepository(this);
             this.DocumentSession = unitOfWork.DocumentSession;
             this.CustomConfiguration = configuration;
+            this.MessageProvider = messageProvider;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RavenRepository" /> class.
+        /// </summary>
+        /// <param name="unitOfWork">The unit of work.</param>
+        /// <param name="configuration">The configuration.</param>
+        public RavenRepository(RavenUnitOfWork unitOfWork, RepositoryConfiguration configuration)
+            : this(unitOfWork, configuration, null)
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RavenRepository" /> class.
+        /// </summary>
+        /// <param name="unitOfWork">The unit of work.</param>
+        /// <param name="messageProvider">The message provider.</param>
+        public RavenRepository(RavenUnitOfWork unitOfWork, IMessageProvider messageProvider)
+            : this(unitOfWork, new RepositoryConfiguration(), messageProvider)
+        {
         }
 
         /// <summary>
@@ -54,12 +77,12 @@ namespace Kore.Domain.RavenDb.Context
         /// </summary>
         /// <param name="unitOfWork">The unit of work.</param>
         public RavenRepository(RavenUnitOfWork unitOfWork)
-            : this(unitOfWork, new RepositoryConfiguration())
+            : this(unitOfWork, new RepositoryConfiguration(), null)
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="RavenRepository"/> class.
+        /// Initializes a new instance of the <see cref="RavenRepository" /> class.
         /// </summary>
         protected RavenRepository()
         {
@@ -83,7 +106,12 @@ namespace Kore.Domain.RavenDb.Context
         /// <summary>
         /// Gets the unit of work.
         /// </summary>
-        public virtual IUnitOfWork UnitOfWork { get; }
+        public virtual IUnitOfWork UnitOfWork { get; private set; }
+
+        /// <summary>
+        /// Gets the message provider.
+        /// </summary>
+        public virtual IMessageProvider MessageProvider { get; private set; }
 
         /// <summary>
         /// Gets the current user.
@@ -108,7 +136,14 @@ namespace Kore.Domain.RavenDb.Context
         public virtual IEnumerable<TEntity> Get<TEntity>()
             where TEntity : class, IEntity
         {
-            return this.DocumentSession.Query<TEntity>();
+            if (this.CustomConfiguration.UseLogicalDeletes)
+            {
+                return this.DocumentSession.Query<TEntity>().Where(x => !x.Deleted);
+            }
+            else
+            {
+                return this.DocumentSession.Query<TEntity>();
+            }
         }
 
         /// <summary>
@@ -121,7 +156,7 @@ namespace Kore.Domain.RavenDb.Context
         {
             if (this.CustomConfiguration.UseLogicalDeletes)
             {
-                return this.Get<TEntity>().Where(x => x.Deleted);
+                return this.DocumentSession.Query<TEntity>();
             }
             else
             {

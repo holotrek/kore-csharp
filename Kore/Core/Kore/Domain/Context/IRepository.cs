@@ -7,6 +7,7 @@
 using System;
 using System.Collections.Generic;
 using Kore.Providers.Authentication;
+using Kore.Providers.Messages;
 
 namespace Kore.Domain.Context
 {
@@ -27,6 +28,11 @@ namespace Kore.Domain.Context
         /// Gets the unit of work.
         /// </summary>
         IUnitOfWork UnitOfWork { get; }
+
+        /// <summary>
+        /// Gets the message provider.
+        /// </summary>
+        IMessageProvider MessageProvider { get; }
 
         #endregion
 
