@@ -12,7 +12,7 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Holotrek's library for core components and providers that can be used by any C# .NET application.</description>
     <tags>Core MVC Web API</tags>
-    <releaseNotes>Added RavenDB domain implementation and removed the LiteDB implementation.</releaseNotes>
+    <releaseNotes>Added Message Provider to Repository so that domain entities can add messages. Modified BaseMessageProvider to require an isDebug flag so that it knows whether to add the Production Fatal Error message.</releaseNotes>
     <dependencies>
       <dependency id="System.Linq.Dynamic" version="1.0.6"></dependency>
     </dependencies>

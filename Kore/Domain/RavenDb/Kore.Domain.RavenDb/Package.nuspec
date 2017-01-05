@@ -12,7 +12,7 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Infrastructure for integrating the Holotrek's Core with the RavenDB NoSQL solution.</description>
     <tags>Core Domain EF</tags>
-    <releaseNotes>Added RavenDB domain implementation and removed the LiteDB implementation.</releaseNotes>
+    <releaseNotes>Added Message Provider to Repository so that domain entities can add messages. Fixed the Delete method on the Raven repository.</releaseNotes>
     <dependencies>
       <dependency id="Kore" version="1.1.1"></dependency>
       <dependency id="RavenDB.Embedded" version="3.5.1"></dependency>

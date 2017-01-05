@@ -12,7 +12,7 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>An implementation of the Holotrek's Messages provider that allows for referencing messages in a resource file by key string.</description>
     <tags>Core Providers Serialization Newtonsoft JSON</tags>
-    <releaseNotes>Fixed a problem with the AddMessage method missing the format parameters.</releaseNotes>
+    <releaseNotes>Modified BaseMessageProvider to require an isDebug flag so that it knows whether to add the Production Fatal Error message.</releaseNotes>
     <dependencies>
       <dependency id="Kore" version="1.1.1"></dependency>
     </dependencies>
