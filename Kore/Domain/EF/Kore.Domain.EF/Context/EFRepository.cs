@@ -55,7 +55,13 @@ namespace Kore.Domain.EF.Context
         /// Gets or sets the message provider.
         /// </summary>
         /// <value>The message provider.</value>
-        public virtual IMessageProvider MessageProvider { get; protected set; }
+        public virtual IMessageProvider MessageProvider
+        {
+            get
+            {
+                return this.UnitOfWork.MessageProvider;
+            }
+        }
 
         /// <summary>
         /// Gets the current user.
@@ -158,13 +164,10 @@ namespace Kore.Domain.EF.Context
         /// <param name="unitOfWork">The unit of work.</param>
         /// <param name="configuration">The configuration.</param>
         /// <param name="messageProvider">The message provider.</param>
+        [Obsolete("No longer needed, as message provider is obtained from the Unit of Work.")]
         public EFRepository(EFUnitOfWork unitOfWork, ContextConfiguration<TContext> configuration, IMessageProvider messageProvider)
-            : base(unitOfWork.Connection)
+            : this(unitOfWork, configuration)
         {
-            this.UnitOfWork = unitOfWork;
-            this.UnitOfWork.AddRepository(this);
-            this.ConfigureContext(configuration);
-            this.MessageProvider = messageProvider;
         }
 
         /// <summary>
@@ -173,8 +176,11 @@ namespace Kore.Domain.EF.Context
         /// <param name="unitOfWork">The unit of work.</param>
         /// <param name="configuration">The configuration.</param>
         public EFRepository(EFUnitOfWork unitOfWork, ContextConfiguration<TContext> configuration)
-            : this(unitOfWork, configuration, null)
+            : base(unitOfWork.Connection)
         {
+            this.UnitOfWork = unitOfWork;
+            this.UnitOfWork.AddRepository(this);
+            this.ConfigureContext(configuration);
         }
 
         /// <summary>
@@ -182,6 +188,7 @@ namespace Kore.Domain.EF.Context
         /// </summary>
         /// <param name="unitOfWork">The unit of work.</param>
         /// <param name="messageProvider">The message provider.</param>
+        [Obsolete("No longer needed, as message provider is obtained from the Unit of Work.")]
         public EFRepository(EFUnitOfWork unitOfWork, IMessageProvider messageProvider)
             : this(unitOfWork, new ContextConfiguration<TContext>(), messageProvider)
         {

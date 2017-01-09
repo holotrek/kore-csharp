@@ -3,7 +3,7 @@
   <metadata>
     <id>Kore</id>
     <title>Holotrek Kore (Kaiser-Core)</title>
-    <version>1.1.1</version>
+    <version>1.1.2</version>
     <projectUrl>https://github.com/holotrek/kore-csharp</projectUrl>
     <licenseUrl>http://choosealicense.com/licenses/mit/</licenseUrl>
     <iconUrl>https://raw.githubusercontent.com/holotrek/kore-csharp/master/icons/Kore_64.png</iconUrl>
@@ -12,7 +12,7 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Holotrek's library for core components and providers that can be used by any C# .NET application.</description>
     <tags>Core MVC Web API</tags>
-    <releaseNotes>Added Message Provider to Repository so that domain entities can add messages. Modified BaseMessageProvider to require an isDebug flag so that it knows whether to add the Production Fatal Error message.</releaseNotes>
+    <releaseNotes>Modified the MockRepository to pull Message Provider from Unit of Work.</releaseNotes>
     <dependencies>
       <dependency id="System.Linq.Dynamic" version="1.0.6"></dependency>
     </dependencies>

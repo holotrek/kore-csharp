@@ -42,14 +42,10 @@ namespace Kore.Domain.RavenDb.Context
         /// <param name="unitOfWork">The unit of work.</param>
         /// <param name="configuration">The configuration.</param>
         /// <param name="messageProvider">The message provider.</param>
+        [Obsolete("No longer needed, as message provider is obtained from the Unit of Work.")]
         public RavenRepository(RavenUnitOfWork unitOfWork, RepositoryConfiguration configuration, IMessageProvider messageProvider)
-            : this()
+            : this(unitOfWork, configuration)
         {
-            this.UnitOfWork = unitOfWork;
-            this.UnitOfWork.AddRepository(this);
-            this.DocumentSession = unitOfWork.DocumentSession;
-            this.CustomConfiguration = configuration;
-            this.MessageProvider = messageProvider;
         }
 
         /// <summary>
@@ -58,8 +54,12 @@ namespace Kore.Domain.RavenDb.Context
         /// <param name="unitOfWork">The unit of work.</param>
         /// <param name="configuration">The configuration.</param>
         public RavenRepository(RavenUnitOfWork unitOfWork, RepositoryConfiguration configuration)
-            : this(unitOfWork, configuration, null)
+            : this()
         {
+            this.UnitOfWork = unitOfWork;
+            this.UnitOfWork.AddRepository(this);
+            this.DocumentSession = unitOfWork.DocumentSession;
+            this.CustomConfiguration = configuration;
         }
 
         /// <summary>
@@ -67,6 +67,7 @@ namespace Kore.Domain.RavenDb.Context
         /// </summary>
         /// <param name="unitOfWork">The unit of work.</param>
         /// <param name="messageProvider">The message provider.</param>
+        [Obsolete("No longer needed, as message provider is obtained from the Unit of Work.")]
         public RavenRepository(RavenUnitOfWork unitOfWork, IMessageProvider messageProvider)
             : this(unitOfWork, new RepositoryConfiguration(), messageProvider)
         {
@@ -77,7 +78,7 @@ namespace Kore.Domain.RavenDb.Context
         /// </summary>
         /// <param name="unitOfWork">The unit of work.</param>
         public RavenRepository(RavenUnitOfWork unitOfWork)
-            : this(unitOfWork, new RepositoryConfiguration(), null)
+            : this(unitOfWork, new RepositoryConfiguration())
         {
         }
 
@@ -111,7 +112,13 @@ namespace Kore.Domain.RavenDb.Context
         /// <summary>
         /// Gets the message provider.
         /// </summary>
-        public virtual IMessageProvider MessageProvider { get; private set; }
+        public virtual IMessageProvider MessageProvider
+        {
+            get
+            {
+                return this.UnitOfWork.MessageProvider;
+            }
+        }
 
         /// <summary>
         /// Gets the current user.

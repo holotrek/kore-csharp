@@ -53,8 +53,20 @@ namespace Kore.Domain.Tests
         /// <param name="unitOfWork">The unit of work.</param>
         /// <param name="serializationProvider">The serialization provider.</param>
         /// <param name="seedData">The seed data.</param>
+        [Obsolete("No longer needed, as message provider is obtained from the Unit of Work.")]
         public MockRepository(IMessageProvider messageProvider, MockUnitOfWork unitOfWork, ISerializationProvider serializationProvider, IEnumerable<IEntity> seedData)
-            : this(messageProvider)
+            : this(unitOfWork, serializationProvider, seedData)
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MockRepository" /> class.
+        /// </summary>
+        /// <param name="unitOfWork">The unit of work.</param>
+        /// <param name="serializationProvider">The serialization provider.</param>
+        /// <param name="seedData">The seed data.</param>
+        public MockRepository(MockUnitOfWork unitOfWork, ISerializationProvider serializationProvider, IEnumerable<IEntity> seedData)
+            : this()
         {
             this.UnitOfWork = unitOfWork;
             this.UnitOfWork.AddRepository(this);
@@ -69,18 +81,27 @@ namespace Kore.Domain.Tests
         /// <param name="messageProvider">The message provider.</param>
         /// <param name="unitOfWork">The unit of work.</param>
         /// <param name="serializationProvider">The serialization provider.</param>
+        [Obsolete("No longer needed, as message provider is obtained from the Unit of Work.")]
         public MockRepository(IMessageProvider messageProvider, MockUnitOfWork unitOfWork, ISerializationProvider serializationProvider)
             : this(messageProvider, unitOfWork, serializationProvider, new List<IEntity>())
         {
         }
 
         /// <summary>
+        /// Initializes a new instance of the <see cref="MockRepository" /> class.
+        /// </summary>
+        /// <param name="unitOfWork">The unit of work.</param>
+        /// <param name="serializationProvider">The serialization provider.</param>
+        public MockRepository(MockUnitOfWork unitOfWork, ISerializationProvider serializationProvider)
+            : this(unitOfWork, serializationProvider, new List<IEntity>())
+        {
+        }
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="MockRepository"/> class.
         /// </summary>
-        /// <param name="messageProvider">The message provider.</param>
-        private MockRepository(IMessageProvider messageProvider)
+        private MockRepository()
         {
-            this.MessageProvider = messageProvider;
         }
 
         #endregion
@@ -108,7 +129,13 @@ namespace Kore.Domain.Tests
         /// <summary>
         /// Gets the message provider.
         /// </summary>
-        public IMessageProvider MessageProvider { get; private set; }
+        public IMessageProvider MessageProvider
+        {
+            get
+            {
+                return this.UnitOfWork.MessageProvider;
+            }
+        }
 
         #endregion
 

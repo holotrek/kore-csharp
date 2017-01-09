@@ -3,7 +3,7 @@
   <metadata>
     <id>Kore.Domain.EF</id>
     <title>Holotrek Kore (Kaiser-Core) - EF Domain</title>
-    <version>1.1.1</version>
+    <version>1.1.2</version>
     <projectUrl>https://github.com/holotrek/kore-csharp</projectUrl>
     <licenseUrl>http://choosealicense.com/licenses/mit/</licenseUrl>
     <iconUrl>https://raw.githubusercontent.com/holotrek/kore-csharp/master/icons/Kore_64.png</iconUrl>
@@ -12,9 +12,9 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Infrastructure for integrating the Holotrek's Core with the Entity Framework ORM.</description>
     <tags>Core Domain EF</tags>
-    <releaseNotes>Added Message Provider to Repository so that domain entities can add messages.</releaseNotes>
+    <releaseNotes>Modified the Repository to pull Message Provider from Unit of Work.</releaseNotes>
     <dependencies>
-      <dependency id="Kore" version="1.1.1"></dependency>
+      <dependency id="Kore" version="1.1.2"></dependency>
       <dependency id="EntityFramework" version="6.1.3"></dependency>
     </dependencies>
     <frameworkAssemblies>
